@@ -1,0 +1,22 @@
+.signUpForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 5px solid;
+    border-radius: 10px;
+    width: 350px;
+    height: 250px;
+    padding: 50px;
+    background-color: aqua;
+}
+
+.signUpSubmit {
+    display: flex;
+    justify-content: center;
+    background-color: aquamarine;
+    margin: 10px;
+    /* margin-left: 75px; */
+    border-radius: 30px;
+    padding-right: 50px;
+    padding-left: 50px;
+}
