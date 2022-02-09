@@ -1,21 +1,21 @@
-import { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+// import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
-import { getSpots } from '../../store/spotReducer'
+// import { getSpots } from '../../store/spotReducer'
 
 const SpotDetail = () => {
-    const dispatch = useDispatch()
     const {spotId} = useParams();
-
+    // const dispatch = useDispatch()
+    const spots = useSelector((state) => state.spotState.list[spotId])
+    // const spots
     // console.log(spotId)
     // console.log(spots)
 
 
-    const spots = useSelector((state) => state.spotState.list)
     // const spots = Object.values(spotsObj)
     // console.log(spotsObj)
-    const spot = spots[spotId]
+    // const spot = spots[spotId]
 
     // const spot = spots.find(spot => spot.id === +spotId)
     // console.log(spot)
@@ -23,19 +23,31 @@ const SpotDetail = () => {
     // useEffect(() => {
     //     dispatch(getSpots());
     // }, [dispatch]);
-
+if (spots) {
     return (
 
 
 
         <div>
-            <h1>{spot.name}</h1>
+            <h1>{spots.name}</h1>
+            <div className='top-detail'>
+            <ul>
+                <li>{spots.city}, {spots.state}, {spots.country}</li>
+            </ul>
+            </div>
+            <div className='booking-Container'>
+                <p>${spots.price} / night</p>
+                <form></form>
+            </div>
 
         </div>
 
 
 
     )
+} else {
+    return (<p></p>)
+}
 }
 
 export default SpotDetail;

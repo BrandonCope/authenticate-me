@@ -43,6 +43,6 @@ module.exports = {
 
       Example:
       */
-   return await queryInterface.bulkDelete('Images');
+   return await queryInterface.bulkDelete('Images', null, {});
   }
 };

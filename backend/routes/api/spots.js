@@ -5,12 +5,10 @@ const { Spot } = require('../../db/models')
 
 const spotValidations = require('../../utils/validations/spots')
 
-
-
-
 router.get('/', asyncHandler(async (req, res) => {
     const spots = await Spot.findAll();
-    console.log(spots)
+    // const images = await Image.findAll();
+    // console.log(spots)
     return res.json(spots)
 }))
 

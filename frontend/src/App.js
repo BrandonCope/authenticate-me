@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
+import { restoreSpot } from "./store/spotReducer";
 // import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
@@ -12,10 +13,13 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const spotsObj = useSelector((state) => state.spotState.list)
+  // const imageObj = useSelector((state) => state.imageState.list)
   const spots = Object.values(spotsObj)
+  // console.log(imageObj)
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+    dispatch(restoreSpot())
   }, [dispatch]);
 
   return (
