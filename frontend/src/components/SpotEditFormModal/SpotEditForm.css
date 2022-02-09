@@ -1,0 +1,10 @@
+.spotEditFrom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 5px solid;
+    border-radius: 10px;
+    width: 350px;
+    height: 200px;
+    padding: 50px;
+}

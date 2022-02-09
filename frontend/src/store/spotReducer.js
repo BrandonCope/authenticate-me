@@ -1,8 +1,8 @@
 import { csrfFetch } from './csrf';
 
 const LOAD = 'spots/Load'
-// const LOAD_IMAGE = 'images/Load'
 const ADD = 'spots/Add'
+const UPDATE = 'spots/Update'
 
 export const loadSpots = (spots) => {
     return { type: LOAD, spots }
@@ -10,7 +10,12 @@ export const loadSpots = (spots) => {
 
 export const addSpots = (newSpot) => ({
     type: ADD,
-    newSpot
+    newSpot,
+})
+
+export const updateSpots = (spot) => ({
+    type: UPDATE,
+    spot,
 })
 
 // export const loadImages = (images) => {
@@ -23,22 +28,37 @@ export const getSpots = () => async dispatch => {
         const spots = await response.json()
         // console.log(spots)
         dispatch(loadSpots(spots))
+        return spots
     }
-    return response;
+    // return response;
 }
 
 export const createSpot = (payload) => async dispatch => {
-    const response = await fetch(`/api/spots`, {
+    const response = await csrfFetch(`/api/spots`, {
         method: 'POST',
-        headers: {'content-type': 'application/json'},
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(payload)
     })
     console.log(response)
     if(response.ok) {
         const newSpot = await response.json()
         dispatch(addSpots(newSpot))
+        return newSpot
     }
-    return response;
+    // return response;
+}
+
+export const updateSpot = (payload) => async dispatch => {
+    const response = await csrfFetch(`/api/spots/${payload.spotId}`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(payload)
+    })
+    if(response.ok) {
+        const editSpot = await response.json()
+        dispatch(updateSpots(editSpot))
+        return editSpot;
+    }
 }
 
 // export const getImage = () => async dispatch => {
@@ -83,14 +103,13 @@ const spotReducer = (state = initialState, action) => {
             return newState
         case ADD:
             newState = {...state}
-            newState.list = {...newState.list, [action.newSpot.id] : action.newSpot}
+            newState.list = {...newState.list, [action.newSpot.id]: action.newSpot}
             return newState
-        // case LOAD_IMAGE:
-        //     newState = {...state}
-        //     const imageObj = {}
-        //     action.images.forEach(image => imageObj[image.id] = image)
-        //     newState.imageObj = imageObj;
-        //     return newState
+        case UPDATE:
+            return {
+                ...state,
+                [action.spot.id]: action.spot
+            }
         default:
             return state;
     }

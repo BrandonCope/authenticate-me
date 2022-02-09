@@ -41,5 +41,20 @@ exports.validateCreate = [
     lat,
     lng,
     name,
-    price
+    price,
+    handleValidationErrors
+]
+
+exports.validateUpdate = [
+
+    userId,
+    address,
+    city,
+    state,
+    country,
+    lat,
+    lng,
+    name,
+    price,
+    handleValidationErrors
 ]

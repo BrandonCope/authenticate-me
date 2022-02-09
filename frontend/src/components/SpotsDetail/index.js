@@ -1,6 +1,7 @@
 // import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import SpotEditFormModal from '../SpotEditFormModal';
 
 // import { getSpots } from '../../store/spotReducer'
 
@@ -8,31 +9,43 @@ const SpotDetail = () => {
     const {spotId} = useParams();
     // const dispatch = useDispatch()
     const spots = useSelector((state) => state.spotState.list[spotId])
-    // const spots
-    // console.log(spotId)
-    // console.log(spots)
+    //   const spotsData = Object.values(spots)
+    // const spotsUserId = useSelector((state) => state.spotState.list[spotId])
+
+    const user = useSelector((state) => state.session.user.id)
+    // console.log(user)
+    // console.log(spotsData)
+    console.log(spots)
 
 
-    // const spots = Object.values(spotsObj)
-    // console.log(spotsObj)
-    // const spot = spots[spotId]
+    let spotEdits;
+    if (user) {
+        spotEdits = (
+            <div>
+                <SpotEditFormModal />
+                <button>Delete</button>
+            </div>
+        )
+    } else {
+        spotEdits = (
+            <>
+            </>
+        )
+    }
 
-    // const spot = spots.find(spot => spot.id === +spotId)
-    // console.log(spot)
-
-    // useEffect(() => {
-    //     dispatch(getSpots());
-    // }, [dispatch]);
 if (spots) {
     return (
 
-
-
         <div>
             <h1>{spots.name}</h1>
+            {spotEdits}
+            {/* <SpotEditFormModal />
+            <button>Delete Estate</button> */}
             <div className='top-detail'>
             <ul>
+                <li>{spots.address}</li>
                 <li>{spots.city}, {spots.state}, {spots.country}</li>
+                <li>Lat:{spots.lat} Lng:{spots.lng}</li>
             </ul>
             </div>
             <div className='booking-Container'>

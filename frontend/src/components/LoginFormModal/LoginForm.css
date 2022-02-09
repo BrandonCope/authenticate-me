@@ -7,7 +7,7 @@
     width: 350px;
     height: 200px;
     padding: 50px;
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 
 /* .inputFields {
@@ -19,10 +19,10 @@
     padding: 10px;
     background-color: beige;
     /* padding-top: 100px; */
-/* } */ 
+/* } */
 
 .loginSubmit {
-    background-color: aquamarine;
+    background-color: goldenrod;
     margin: 10px;
     border-radius: 30px;
     padding-right: 50px;

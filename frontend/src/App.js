@@ -7,16 +7,15 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import SpotList from "./components/SpotsList";
 import SpotDetail from "./components/SpotsDetail";
+import SpotHostForm from "./components/SpotsHostForm";
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
-
   const spotsObj = useSelector((state) => state.spotState.list)
   // const imageObj = useSelector((state) => state.imageState.list)
   const spots = Object.values(spotsObj)
-  // console.log(imageObj)
-
+  // console.log(spotsObj)
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
     dispatch(restoreSpot())
@@ -25,18 +24,26 @@ function App() {
   return (
     <>
       <Navigation isLoaded={isLoaded} />
+      <Route exact path={'/spots/new'}>
+            <SpotHostForm spots={spots} />
+          </Route>
       {isLoaded && (
         <Switch>
+
           <Route exact path={'/'}>
             <h1>Welcome to Heir B&B!</h1>
             <SpotList spots={spots} />
           </Route>
+
           <Route path={'/spots/:spotId'}>
             <SpotDetail spots={spots} />
           </Route>
+
+
           <Route>
             <h2>Page Not Found</h2>
           </Route>
+
         </Switch>
       )}
     </>

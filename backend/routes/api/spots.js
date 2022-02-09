@@ -17,4 +17,41 @@ router.post('/', spotValidations.validateCreate, asyncHandler(async(req, res) =>
     res.json(spot)
 }))
 
+router.put('/:id', spotValidations.validateUpdate, asyncHandler(async(req,res) => {
+    const {
+        id,
+        userId,
+        address,
+        city,
+        state,
+        country,
+        lat,
+        lng,
+        name,
+        price,
+    } = req.body;
+
+    const editSpot = await Spot.findByPk(id);
+
+    const spot = await editSpot.update({
+        address,
+        city,
+        state,
+        country,
+        lat,
+        lng,
+        name,
+        price,
+    })
+    return res.json(spot)
+}))
+
+router.delete('/:spotId', asyncHandler(async(req,res) => {
+    const {spotId} = req.params;
+    const deleteSpot = await Spot.findByPk(spotId)
+
+    deleteSpot.destroy();
+    res.json({ message: 'success' })
+}))
+
 module.exports = router;

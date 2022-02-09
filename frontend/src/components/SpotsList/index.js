@@ -21,7 +21,7 @@ const SpotList = ({spots}) => {
 
     return (
         <div>
-            <h1>Spot List</h1>
+            <h1>Current Estates</h1>
             <ul>
                 {spots.map(spot => (
                     <div key={spot.id} className='listContainer'>
