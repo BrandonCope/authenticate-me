@@ -6,4 +6,26 @@
     justify-content: space-between;
     margin: 15px;
     padding: 15px;
+    margin-left: 50px;
+    margin-right: 500px;
+    background-color: goldenrod;
+    box-shadow: 10px 5px 5px ;
+    font-style: strong;
+}
+
+.listImage {
+    width: 300px;
+    border-radius: 10px;
+}
+
+.listDetail {
+    display: flex;
+    /* padding: ; */
+    /* justify-content: space-between; */
+}
+
+.subListDetail {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
 }

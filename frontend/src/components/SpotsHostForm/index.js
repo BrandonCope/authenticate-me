@@ -6,6 +6,9 @@ import './SpotHostForm.css'
 
 const SpotHostForm = () => {
     const dispatch = useDispatch();
+    const [url1, setUrl1] = useState('')
+    const [url2, setUrl2] = useState('')
+    const [url3, setUrl3] = useState('')
     const [address, setAddress] = useState('')
     const [city, setCity] = useState('')
     const [state, setState] = useState('')
@@ -25,6 +28,9 @@ const SpotHostForm = () => {
 //   console.log(spotsObj.list)
 
   const reset = () => {
+      setUrl1("");
+      setUrl2("");
+      setUrl3("");
       setAddress("");
       setCity("");
       setState("");
@@ -41,6 +47,9 @@ const SpotHostForm = () => {
 
         const newSpot = {
             userId: user,
+            url1,
+            url2,
+            url3,
             address,
             city,
             state,
@@ -56,12 +65,43 @@ const SpotHostForm = () => {
     }
 
     return (
-        <div>
-            <h2>Host Your Estate</h2>
+        <div className='hostContainer'>
             <form className='hostForm' onSubmit={handleSubmit}>
-                <label>
-                    Address:
+            <h2>Host Your Estate</h2>
+            <label>
+
                     <input
+                    placeholder='Image 1 add your url'
+                    type="text"
+                    value={url1}
+                    onChange={(e) => setAddress(e.target.value)}
+                    required
+                    />
+                </label>
+            <label>
+
+                    <input
+                    placeholder='Image 2 add your url'
+                    type="text"
+                    value={url2}
+                    onChange={(e) => setAddress(e.target.value)}
+                    required
+                    />
+                </label>
+            <label>
+
+                    <input
+                    placeholder='Image 3 add your url'
+                    type="text"
+                    value={url3}
+                    onChange={(e) => setAddress(e.target.value)}
+                    required
+                    />
+                </label>
+                <label>
+
+                    <input
+                    placeholder='Address'
                     type="text"
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
@@ -69,8 +109,9 @@ const SpotHostForm = () => {
                     />
                 </label>
                 <label>
-                    City:
+
                     <input
+                    placeholder='City'
                     type="text"
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
@@ -78,8 +119,9 @@ const SpotHostForm = () => {
                     />
                 </label>
                 <label>
-                    State:
+
                     <input
+                    placeholder='State'
                     type="text"
                     value={state}
                     onChange={(e) => setState(e.target.value)}
@@ -87,8 +129,9 @@ const SpotHostForm = () => {
                     />
                 </label>
                 <label>
-                    Country:
+
                     <input
+                    placeholder='Country'
                     type="text"
                     value={country}
                     onChange={(e) => setCountry(e.target.value)}
@@ -96,24 +139,27 @@ const SpotHostForm = () => {
                     />
                 </label>
                 <label>
-                    Latitude:
+
                     <input
-                    type="number"
+                    placeholder='Latitude'
+                    type="teext"
                     value={lat}
                     onChange={(e) => setLat(Number(e.target.value))}
                     />
                 </label>
                 <label>
-                    Longitude:
+
                     <input
-                    type="number"
+                    placeholder='Longitude'
+                    type="text"
                     value={lng}
                     onChange={(e) => setLng(Number(e.target.value))}
                     />
                 </label>
                 <label>
-                    Estate Name:
+
                     <input
+                    placeholder='Estate Name'
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -121,9 +167,10 @@ const SpotHostForm = () => {
                     />
                 </label>
                 <label>
-                    Price:
+
                     <input
-                    type="number"
+                    placeholder='Price'
+                    type="text"
                     value={price}
                     onChange={(e) => setPrice(Number(e.target.value))}
                     />

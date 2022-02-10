@@ -5,6 +5,18 @@ const userId = check('userId')
     .notEmpty()
     .withMessage('cannot be empty')
     .isInt({min:0});
+const url1 = check('url1')
+    .notEmpty()
+    .withMessage('cannot be empty')
+    .isURL({ require_protocol: false, require_host: false });
+const url2 = check('url1')
+    .notEmpty()
+    .withMessage('cannot be empty')
+    .isURL({ require_protocol: false, require_host: false });
+const url3 = check('url1')
+    .notEmpty()
+    .withMessage('cannot be empty')
+    .isURL({ require_protocol: false, require_host: false });
 const address = check('address')
     .notEmpty()
     .withMessage('cannot be empty');
@@ -34,6 +46,9 @@ const price = check('price')
 
 exports.validateCreate = [
     userId,
+    url1,
+    url2,
+    url3,
     address,
     city,
     state,
@@ -46,6 +61,9 @@ exports.validateCreate = [
 ]
 
 exports.validateUpdate = [
+    url1,
+    url2,
+    url3,
     address,
     city,
     state,

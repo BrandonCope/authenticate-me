@@ -40,6 +40,16 @@ export const getSpots = () => async dispatch => {
     // return response;
 }
 
+export const restoreSpot = () => async (dispatch) => {
+    const response = await csrfFetch('/api/spots');
+    const spots = await response.json();
+    // console.log(spots)
+    dispatch(loadSpots(spots));
+    return response;
+
+}
+
+
 export const createSpot = (payload) => async dispatch => {
     const response = await csrfFetch(`/api/spots`, {
         method: 'POST',
@@ -90,14 +100,6 @@ export const deleteSpot = (spotId) => async dispatch => {
 
 // }
 
-export const restoreSpot = () => async (dispatch) => {
-    const response = await csrfFetch('/api/spots');
-    const spots = await response.json();
-    // console.log(spots)
-    dispatch(loadSpots(spots));
-    return spots;
-
-}
 
 
 

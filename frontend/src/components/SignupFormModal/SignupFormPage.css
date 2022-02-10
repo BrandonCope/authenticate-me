@@ -7,13 +7,14 @@
     width: 350px;
     height: 250px;
     padding: 50px;
-    /* background-color: aqua; */
+    background-color: goldenrod;
 }
 
 .signUpSubmit {
     display: flex;
     justify-content: center;
-    background-color: goldenrod;
+    background-color: black;
+    color: white;
     /* margin: 0px; */
     width: 200px;
     /* margin-left: 75px; */
@@ -23,7 +24,8 @@
 }
 
  .signupModalButton {
-    background-color: goldenrod;
+    background-color: black;
+    color: white;
     margin: 10px;
     border: solid;
     /* width: 500px; */

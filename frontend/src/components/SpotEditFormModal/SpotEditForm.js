@@ -45,7 +45,7 @@ function SpotEditForm() {
     }
 
     return (
-        <div>
+        <div className="editFormContainer">
         <form className='editForm' onSubmit={handleSubmit} >
          <h2>Hello from edit form</h2>
         <label>

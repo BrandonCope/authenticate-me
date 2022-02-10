@@ -8,17 +8,20 @@ import Navigation from "./components/Navigation";
 import SpotList from "./components/SpotsList";
 import SpotDetail from "./components/SpotsDetail";
 import SpotHostForm from "./components/SpotsHostForm";
+import * as spotActions from "./store/spotReducer"
+import './app.css'
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  // const [spotLoaded, setSpotLoaded] = useState(true);
   const spotsObj = useSelector((state) => state.spotState.list)
   // const imageObj = useSelector((state) => state.imageState.list)
   const spots = Object.values(spotsObj)
   // console.log(spotsObj)
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
-    dispatch(restoreSpot())
+    dispatch(spotActions.restoreSpot())
   }, [dispatch]);
 
   return (
@@ -27,6 +30,7 @@ function App() {
       <Route exact path={'/spots/new'}>
             <SpotHostForm spots={spots} />
           </Route>
+          <div className="pageDiv">
       {isLoaded && (
         <Switch>
 
@@ -46,6 +50,8 @@ function App() {
 
         </Switch>
       )}
+
+          </div>
     </>
   );
 }

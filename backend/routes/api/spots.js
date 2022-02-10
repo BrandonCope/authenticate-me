@@ -33,6 +33,9 @@ router.post('/', restoreUser, spotValidations.validateCreate, asyncHandler(async
 router.put('/:id(\\d+)', restoreUser, spotValidations.validateUpdate, asyncHandler(async(req,res) => {
     const {id} = req.params
     const {
+        url1,
+        url2,
+        url3,
         address,
         city,
         state,
@@ -43,6 +46,9 @@ router.put('/:id(\\d+)', restoreUser, spotValidations.validateUpdate, asyncHandl
         price,} = req.body
     const editSpot = await Spot.findByPk(id);
     editSpot.set({
+        url1,
+        url2,
+        url3,
         address,
         city,
         state,

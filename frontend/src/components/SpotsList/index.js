@@ -26,11 +26,18 @@ const SpotList = ({spots}) => {
             <ul>
                 {spots.map(spot => (
                     <div key={spot.id} className='listContainer'>
+                        <div className='listDetail'>
+                            <img className='listImage'
+                            src={spot.url1}
+                            />
+                            <div className='subListDetail'>
                         <p>Luxury living in {spot.city}</p>
                         <Link to={`/spots/${spot.id}`}>
                             <p>{spot.name}</p>
                         </Link>
                             <p>${spot.price} / night</p>
+                            </div>
+                        </div>
                     </div>
                 ))}
             </ul>

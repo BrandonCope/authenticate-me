@@ -15,6 +15,18 @@ module.exports = {
           model: 'Users'
         }
       },
+      url1: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      url2: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      url3: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
       address: {
         allowNull: false,
         type: Sequelize.STRING

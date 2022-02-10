@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import SpotEditForm from './SpotEditForm';
+import './SpotEditForm.css'
 // import LoginForm from './LoginForm';
 
 function SpotEditFormModal() {
@@ -8,7 +9,7 @@ function SpotEditFormModal() {
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>Edit Details</button>
+      <button className='editDetailButton' onClick={() => setShowModal(true)}>Edit Details</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
          <SpotEditForm />

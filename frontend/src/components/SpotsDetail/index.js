@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom'
 import SpotEditFormModal from '../SpotEditFormModal';
 import { deleteSpot } from '../../store/spotReducer';
+import './SpotsDetail.css'
 
 
 // import { getSpots } from '../../store/spotReducer'
@@ -21,7 +22,7 @@ const SpotDetail = ({spots}) => {
     const spotUser = useSelector((state) => state.spotState.list[spotId])
     console.log(user.id)
     console.log(spotUser)
-    // console.log(spotUser.userId)
+    console.log(spotUser?.userId)
 
     const handleClick = async () => {
         await dispatch(deleteSpot(spotId))
@@ -30,11 +31,11 @@ const SpotDetail = ({spots}) => {
 
 
     let spotEdits;
-    if (user) {
+    if (user.id === spotUser?.userId) {
         spotEdits = (
             <div>
                 <SpotEditFormModal />
-                <button onClick={
+                <button className='deleteSpotButton' onClick={
                     async () => {
                     dispatch(deleteSpot(spotId))
                     history.push('/')}} >
@@ -48,7 +49,7 @@ const SpotDetail = ({spots}) => {
         )
     }
 
-if (spot) {
+if (spotUser) {
     return (
 
         <div>
@@ -57,11 +58,17 @@ if (spot) {
             {/* <SpotEditFormModal />
             <button>Delete Estate</button> */}
             <div className='top-detail'>
-            <ul>
+            <ul className='sub-top-detail'>
                 <li>{spot.address}</li>
                 <li>{spot.city}, {spot.state}, {spot.country}</li>
                 <li>Lat:{spot.lat} Lng:{spot.lng}</li>
             </ul>
+            <div>
+                <img className='detailImage1' src={spot.url1} />
+                <img className='detailImage2' src={spot.url2} />
+                <img className='detailImage3' src={spot.url3} />
+
+            </div>
             </div>
             <div className='booking-Container'>
                 <p>${spot.price} / night</p>
