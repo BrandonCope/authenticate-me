@@ -5,6 +5,7 @@ import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignUpFormModal from '../SignupFormModal';
 import './Navigation.css';
+import logo from '../assets/logo.png'
 // import SpotHostForm from '../SpotsHostForm';
 
 function Navigation({ isLoaded }){
@@ -13,8 +14,8 @@ function Navigation({ isLoaded }){
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <div>
-        <NavLink to={"/spots/new"}>Host a spot!</NavLink>
+      <div className='loggedOutUserNav'>
+
         <ProfileButton user={sessionUser} />
       </div>
     );
@@ -30,7 +31,11 @@ function Navigation({ isLoaded }){
   return (
 
     <ul className='navBar'>
-        <NavLink exact to="/">🏠</NavLink>
+        <NavLink exact to="/">
+          {/* <a href='' className='logo'> */}
+            <img className='logo' src={logo} />
+          {/* </a> */}
+        </NavLink>
         <div className='sessionLinks'>
         {isLoaded && sessionLinks}
         </div>

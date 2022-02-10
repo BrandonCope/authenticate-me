@@ -1,24 +1,24 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from 'react-router-dom'
-// import { Redirect } from "react-router-dom";
+import { useParams, useHistory } from 'react-router-dom'
 import './SpotEditForm.css'
-import { editSpot } from "../../store/spotReducer";
+import { editSpot } from '../../store/spotReducer'
 
 function SpotEditForm() {
     const dispatch = useDispatch();
-    const [address, setAddress] = useState('')
-    const [city, setCity] = useState('')
-    const [state, setState] = useState('')
-    const [country, setCountry] = useState('')
-    const [lat, setLat] = useState('')
-    const [lng, setLng] = useState('')
-    const [name, setName] = useState('')
-    const [price, setPrice] = useState('')
-
+    const history = useHistory();
     const {spotId} = useParams();
     const spots = useSelector((state) => state.spotState.list[spotId])
+    const [address, setAddress] = useState(`${spots.address}`)
+    const [city, setCity] = useState(`${spots.city}`)
+    const [state, setState] = useState(`${spots.state}`)
+    const [country, setCountry] = useState(`${spots.country}`)
+    const [lat, setLat] = useState(`${spots.lat}`)
+    const [lng, setLng] = useState(`${spots.lng}`)
+    const [name, setName] = useState(`${spots.name}`)
+    const [price, setPrice] = useState(`${spots.price}`)
+
     const user = useSelector((state) => state.session.user.id)
     console.log(user)
     console.log(spotId)
@@ -27,12 +27,10 @@ function SpotEditForm() {
     // // console.log(user)
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const editSpot = {
-            id: spotId,
-            userId: user,
+        const payload = {
             address,
             city,
             state,
@@ -42,17 +40,19 @@ function SpotEditForm() {
             name,
             price,
         }
-        dispatch(editSpot(editSpot))
+        await dispatch(editSpot(spotId, payload))
+        history.push(`/`)
     }
 
     return (
         <div>
-             <h2>Hello from edit form</h2>
-        <form className='hostForm' >
+        <form className='editForm' onSubmit={handleSubmit} >
+         <h2>Hello from edit form</h2>
         <label>
             Address:
             <input
             type="text"
+            // defaultValue={spots.address}
             value={address}
             onChange={(e) => setAddress(e.target.value)}
             required
@@ -62,6 +62,7 @@ function SpotEditForm() {
             City:
             <input
             type="text"
+            // placeholder={spots.city}
             value={city}
             onChange={(e) => setCity(e.target.value)}
             required
@@ -118,7 +119,7 @@ function SpotEditForm() {
             onChange={(e) => setPrice(Number(e.target.value))}
             />
         </label>
-        <button className='hostSubmit' type='submit'>Submit Changes!</button>
+        <button className='editSubmit' type='submit'>Submit Changes!</button>
     </form>
         </div>
     )

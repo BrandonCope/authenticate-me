@@ -7,18 +7,22 @@ import { deleteSpot } from '../../store/spotReducer';
 
 // import { getSpots } from '../../store/spotReducer'
 
-const SpotDetail = () => {
-    const {spotId} = useParams();
-    const spots = useSelector((state) => state.spotState.list[spotId])
+const SpotDetail = ({spots}) => {
     const dispatch = useDispatch()
     const history = useHistory();
-    //   const spotsData = Object.values(spots)
-    // const spotsUserId = useSelector((state) => state.spotState.list[spotId])
+    const {spotId} = useParams();
+
+    // const spots = useSelector((state) => state.spotState.list[spotId])
+    const spot = spots.find(spot => spot.id === +spotId)
+    // console.log(spot.userId)
+
 
     const user = useSelector((state) => state.session.user)
-    // console.log(user)
-    // console.log(spotsData)
-    // console.log(spots)
+    const spotUser = useSelector((state) => state.spotState.list[spotId])
+    console.log(user.id)
+    console.log(spotUser)
+    // console.log(spotUser.userId)
+
     const handleClick = async () => {
         await dispatch(deleteSpot(spotId))
         history.push('/')
@@ -44,23 +48,23 @@ const SpotDetail = () => {
         )
     }
 
-if (spots) {
+if (spot) {
     return (
 
         <div>
-            <h1>{spots.name}</h1>
+            <h1>{spot.name}</h1>
             {spotEdits}
             {/* <SpotEditFormModal />
             <button>Delete Estate</button> */}
             <div className='top-detail'>
             <ul>
-                <li>{spots.address}</li>
-                <li>{spots.city}, {spots.state}, {spots.country}</li>
-                <li>Lat:{spots.lat} Lng:{spots.lng}</li>
+                <li>{spot.address}</li>
+                <li>{spot.city}, {spot.state}, {spot.country}</li>
+                <li>Lat:{spot.lat} Lng:{spot.lng}</li>
             </ul>
             </div>
             <div className='booking-Container'>
-                <p>${spots.price} / night</p>
+                <p>${spot.price} / night</p>
                 <form></form>
             </div>
 

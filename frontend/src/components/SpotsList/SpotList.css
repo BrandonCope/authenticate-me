@@ -1,4 +1,9 @@
 .listContainer {
     border: solid;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 15px;
+    padding: 15px;
 }

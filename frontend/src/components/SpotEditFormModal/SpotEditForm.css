@@ -1,10 +1,32 @@
-.spotEditFrom {
+.editForm {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     border: 5px solid;
     border-radius: 10px;
     width: 350px;
-    height: 200px;
+    height: 250px;
     padding: 50px;
+    padding-top: 10px;
+
+    /* background-color: aqua; */
+}
+
+/* .inputFields {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 1px solid;
+    border-radius: 30px;
+    padding: 10px;
+    background-color: beige;
+    /* padding-top: 100px; */
+/* } */
+
+.editSubmit {
+    background-color: goldenrod;
+    margin: 10px;
+    border-radius: 30px;
+    /* padding-right: 50px;
+    padding-left: 50px; */
 }
