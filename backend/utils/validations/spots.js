@@ -8,15 +8,15 @@ const userId = check('userId')
 const url1 = check('url1')
     .notEmpty()
     .withMessage('cannot be empty')
-    .isURL({ require_protocol: false, require_host: false });
+    .isURL();
 const url2 = check('url1')
     .notEmpty()
     .withMessage('cannot be empty')
-    .isURL({ require_protocol: false, require_host: false });
+    .isURL();
 const url3 = check('url1')
     .notEmpty()
     .withMessage('cannot be empty')
-    .isURL({ require_protocol: false, require_host: false });
+    .isURL();
 const address = check('address')
     .notEmpty()
     .withMessage('cannot be empty');

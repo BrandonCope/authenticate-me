@@ -8,8 +8,7 @@ const userId = check('userId')
 const url = check('url')
     .notEmpty()
     .withMessage('cannot be empty')
-    .isURL({ require_protocol: false, require_host: false });
-
+    
 exports.validateCreate = [
     userId,
     url
