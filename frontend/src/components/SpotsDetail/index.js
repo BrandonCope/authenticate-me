@@ -20,7 +20,7 @@ const SpotDetail = ({spots}) => {
 
     const user = useSelector((state) => state.session.user)
     const spotUser = useSelector((state) => state.spotState.list[spotId])
-    console.log(user.id)
+    console.log(user?.id)
     console.log(spotUser)
     console.log(spotUser?.userId)
 
@@ -31,7 +31,7 @@ const SpotDetail = ({spots}) => {
 
 
     let spotEdits;
-    if (user.id === spotUser?.userId) {
+    if (user?.id === spotUser?.userId) {
         spotEdits = (
             <div>
                 <SpotEditFormModal />

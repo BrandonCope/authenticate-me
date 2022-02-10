@@ -10,6 +10,9 @@ function SpotEditForm() {
     const history = useHistory();
     const {spotId} = useParams();
     const spots = useSelector((state) => state.spotState.list[spotId])
+    const [url1, setUrl1] = useState(`${spots.url1}`)
+    const [url2, setUrl2] = useState(`${spots.url2}`)
+    const [url3, setUrl3] = useState(`${spots.url3}`)
     const [address, setAddress] = useState(`${spots.address}`)
     const [city, setCity] = useState(`${spots.city}`)
     const [state, setState] = useState(`${spots.state}`)
@@ -31,6 +34,9 @@ function SpotEditForm() {
         e.preventDefault();
 
         const payload = {
+            url1,
+            url2,
+            url3,
             address,
             city,
             state,
@@ -48,6 +54,33 @@ function SpotEditForm() {
         <div className="editFormContainer">
         <form className='editForm' onSubmit={handleSubmit} >
          <h2>Hello from edit form</h2>
+         <label>
+                    <input
+                    placeholder='Image 1 add your url'
+                    type="text"
+                    value={url1}
+                    onChange={(e) => setUrl1(e.target.value)}
+                    required
+                    />
+                </label>
+                <label>
+                    <input
+                    placeholder='Image 2 add your url'
+                    type="text"
+                    value={url2}
+                    onChange={(e) => setUrl2(e.target.value)}
+                    required
+                    />
+                </label>
+                <label>
+                    <input
+                    placeholder='Image 3 add your url'
+                    type="text"
+                    value={url3}
+                    onChange={(e) => setUrl3(e.target.value)}
+                    required
+                    />
+                </label>
         <label>
             Address:
             <input

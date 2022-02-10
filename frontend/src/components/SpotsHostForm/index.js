@@ -69,37 +69,34 @@ const SpotHostForm = () => {
             <form className='hostForm' onSubmit={handleSubmit}>
             <h2>Host Your Estate</h2>
             <label>
-
                     <input
                     placeholder='Image 1 add your url'
                     type="text"
                     value={url1}
-                    onChange={(e) => setAddress(e.target.value)}
-                    required
-                    />
-                </label>
-            <label>
-
-                    <input
-                    placeholder='Image 2 add your url'
-                    type="text"
-                    value={url2}
-                    onChange={(e) => setAddress(e.target.value)}
-                    required
-                    />
-                </label>
-            <label>
-
-                    <input
-                    placeholder='Image 3 add your url'
-                    type="text"
-                    value={url3}
-                    onChange={(e) => setAddress(e.target.value)}
+                    onChange={(e) => setUrl1(e.target.value)}
                     required
                     />
                 </label>
                 <label>
+                    <input
+                    placeholder='Image 2 add your url'
+                    type="text"
+                    value={url2}
+                    onChange={(e) => setUrl2(e.target.value)}
+                    required
+                    />
+                </label>
+                <label>
+                    <input
+                    placeholder='Image 3 add your url'
+                    type="text"
+                    value={url3}
+                    onChange={(e) => setUrl3(e.target.value)}
+                    required
+                    />
+                </label>
 
+                <label>
                     <input
                     placeholder='Address'
                     type="text"
@@ -109,7 +106,6 @@ const SpotHostForm = () => {
                     />
                 </label>
                 <label>
-
                     <input
                     placeholder='City'
                     type="text"
@@ -119,7 +115,6 @@ const SpotHostForm = () => {
                     />
                 </label>
                 <label>
-
                     <input
                     placeholder='State'
                     type="text"
@@ -129,7 +124,6 @@ const SpotHostForm = () => {
                     />
                 </label>
                 <label>
-
                     <input
                     placeholder='Country'
                     type="text"
@@ -139,25 +133,24 @@ const SpotHostForm = () => {
                     />
                 </label>
                 <label>
-
                     <input
                     placeholder='Latitude'
-                    type="teext"
+                    type="number"
                     value={lat}
                     onChange={(e) => setLat(Number(e.target.value))}
+                    required
                     />
                 </label>
                 <label>
-
                     <input
                     placeholder='Longitude'
-                    type="text"
+                    type="number"
                     value={lng}
                     onChange={(e) => setLng(Number(e.target.value))}
+                    required
                     />
                 </label>
                 <label>
-
                     <input
                     placeholder='Estate Name'
                     type="text"
@@ -167,14 +160,14 @@ const SpotHostForm = () => {
                     />
                 </label>
                 <label>
-
                     <input
                     placeholder='Price'
-                    type="text"
+                    type="number"
                     value={price}
                     onChange={(e) => setPrice(Number(e.target.value))}
                     />
                 </label>
+
                 <button className='hostSubmit' type='submit'>Host Now!</button>
             </form>
         </div>
