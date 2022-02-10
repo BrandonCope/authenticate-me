@@ -46,8 +46,6 @@ exports.validateCreate = [
 ]
 
 exports.validateUpdate = [
-
-    userId,
     address,
     city,
     state,

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom'
 // import { Redirect } from "react-router-dom";
 import './SpotEditForm.css'
-import { updateSpot } from "../../store/spotReducer";
+import { editSpot } from "../../store/spotReducer";
 
 function SpotEditForm() {
     const dispatch = useDispatch();
@@ -26,6 +26,7 @@ function SpotEditForm() {
     // const user = useSelector((state) => state.session.user)
     // // console.log(user)
 
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -41,7 +42,7 @@ function SpotEditForm() {
             name,
             price,
         }
-        dispatch(updateSpot(editSpot))
+        dispatch(editSpot(editSpot))
     }
 
     return (

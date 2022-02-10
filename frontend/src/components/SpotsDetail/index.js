@@ -1,21 +1,28 @@
 // import { useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { useParams, useHistory } from 'react-router-dom'
 import SpotEditFormModal from '../SpotEditFormModal';
+import { deleteSpot } from '../../store/spotReducer';
+
 
 // import { getSpots } from '../../store/spotReducer'
 
 const SpotDetail = () => {
     const {spotId} = useParams();
-    // const dispatch = useDispatch()
     const spots = useSelector((state) => state.spotState.list[spotId])
+    const dispatch = useDispatch()
+    const history = useHistory();
     //   const spotsData = Object.values(spots)
     // const spotsUserId = useSelector((state) => state.spotState.list[spotId])
 
-    const user = useSelector((state) => state.session.user.id)
+    const user = useSelector((state) => state.session.user)
     // console.log(user)
     // console.log(spotsData)
-    console.log(spots)
+    // console.log(spots)
+    const handleClick = async () => {
+        await dispatch(deleteSpot(spotId))
+        history.push('/')
+    }
 
 
     let spotEdits;
@@ -23,7 +30,11 @@ const SpotDetail = () => {
         spotEdits = (
             <div>
                 <SpotEditFormModal />
-                <button>Delete</button>
+                <button onClick={
+                    async () => {
+                    dispatch(deleteSpot(spotId))
+                    history.push('/')}} >
+                Delete</button>
             </div>
         )
     } else {
