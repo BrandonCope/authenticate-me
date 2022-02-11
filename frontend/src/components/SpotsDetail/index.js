@@ -15,16 +15,11 @@ const SpotDetail = ({spots}) => {
     const history = useHistory();
     const {spotId} = useParams();
 
-    // const spots = useSelector((state) => state.spotState.list[spotId])
     const spot = spots.find(spot => spot.id === +spotId)
-    // console.log(spot.userId)
-
 
     const user = useSelector((state) => state.session.user)
     const spotUser = useSelector((state) => state.spotState.list[spotId])
-    // console.log(user?.id)
-    // console.log(spotUser)
-    // console.log(spotUser?.userId)
+
     useEffect(() => {
         dispatch(getSpots())
     },[dispatch])

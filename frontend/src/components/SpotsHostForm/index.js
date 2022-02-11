@@ -42,10 +42,10 @@ const SpotHostForm = () => {
   }
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const newSpot = {
+        const buildSpot = {
             userId: user,
             url1,
             url2,
@@ -59,9 +59,9 @@ const SpotHostForm = () => {
             name,
             price,
         }
-        dispatch(createSpot(newSpot));
+        const newSpot = await dispatch(createSpot(buildSpot));
         reset();
-        history.push('/')
+        history.push(`/spots/${newSpot.id}`)
     }
 
     return (

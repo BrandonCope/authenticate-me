@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from 'react-router-dom'
 import './SpotEditForm.css'
@@ -22,15 +21,9 @@ function SpotEditForm() {
     const [name, setName] = useState(`${spots.name}`)
     const [price, setPrice] = useState(`${spots.price}`)
 
-    // const user = useSelector((state) => state.session.user.id)
-    // console.log(user)
-    // console.log(spotId)
-
-    // const user = useSelector((state) => state.session.user)
-    // // console.log(user)
 
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
         const payload = {
@@ -46,8 +39,9 @@ function SpotEditForm() {
             name,
             price,
         }
-        await dispatch(editSpot(spotId, payload))
-        // history.push(`/`)
+        dispatch(editSpot(spotId, payload))
+        // setShowModal(false)
+        // history.push(`/spots/${editSpot.id}`)
     }
 
     useEffect(() => {
