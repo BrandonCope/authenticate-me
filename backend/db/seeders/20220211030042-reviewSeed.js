@@ -18,7 +18,12 @@ module.exports = {
       userId:2,
       spotId:1,
       review:"Great place to host company outing."
-     }
+     },
+     {
+      userId:2,
+      spotId:2,
+      review:"A magnificent piece of history."
+     },
    ], {});
   },
 

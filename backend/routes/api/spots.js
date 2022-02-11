@@ -25,7 +25,6 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
 
 router.post('/', restoreUser, spotValidations.validateCreate, asyncHandler(async(req, res) => {
     const userId = req.user.id;
-    // console.log(userId)
     const spot = await Spot.create(req.body);
     res.json(spot)
 }))
