@@ -1,4 +1,3 @@
-// import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom'
 import SpotEditFormModal from '../SpotEditFormModal';
