@@ -20,9 +20,9 @@ const SpotDetail = ({spots}) => {
 
     const user = useSelector((state) => state.session.user)
     const spotUser = useSelector((state) => state.spotState.list[spotId])
-    console.log(user?.id)
-    console.log(spotUser)
-    console.log(spotUser?.userId)
+    // console.log(user?.id)
+    // console.log(spotUser)
+    // console.log(spotUser?.userId)
 
     const handleClick = async () => {
         await dispatch(deleteSpot(spotId))

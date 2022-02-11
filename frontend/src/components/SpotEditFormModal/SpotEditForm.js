@@ -23,8 +23,8 @@ function SpotEditForm() {
     const [price, setPrice] = useState(`${spots.price}`)
 
     const user = useSelector((state) => state.session.user.id)
-    console.log(user)
-    console.log(spotId)
+    // console.log(user)
+    // console.log(spotId)
 
     // const user = useSelector((state) => state.session.user)
     // // console.log(user)
