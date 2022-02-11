@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import { restoreSpot } from "./store/spotReducer";
+import { restoreReview } from "./store/reviewReducer";
 // import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import SpotList from "./components/SpotsList";
 import SpotDetail from "./components/SpotsDetail";
 import SpotHostForm from "./components/SpotsHostForm";
-import * as spotActions from "./store/spotReducer"
+// import * as spotActions from "./store/spotReducer"
+// import * as reviewActions from "./store/reviewReducer"
 import './app.css'
 
 function App() {
@@ -21,7 +23,8 @@ function App() {
   // console.log(spotsObj)
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
-    dispatch(spotActions.restoreSpot())
+    dispatch(restoreSpot())
+    dispatch(restoreReview())
   }, [dispatch]);
 
   return (

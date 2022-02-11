@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import * as sessionActions from "../../store/session";
+import React, { useState, useEffect } from "react";
+// import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from 'react-router-dom'
 import './SpotEditForm.css'
-import { editSpot } from '../../store/spotReducer'
+import { editSpot, getSpots } from '../../store/spotReducer'
 
 function SpotEditForm() {
     const dispatch = useDispatch();
@@ -22,7 +22,7 @@ function SpotEditForm() {
     const [name, setName] = useState(`${spots.name}`)
     const [price, setPrice] = useState(`${spots.price}`)
 
-    const user = useSelector((state) => state.session.user.id)
+    // const user = useSelector((state) => state.session.user.id)
     // console.log(user)
     // console.log(spotId)
 
@@ -47,8 +47,13 @@ function SpotEditForm() {
             price,
         }
         await dispatch(editSpot(spotId, payload))
-        history.push(`/`)
+        // history.push(`/`)
     }
+
+    useEffect(() => {
+        dispatch(getSpots())
+    },[dispatch])
+
 
     return (
         <div className="editFormContainer">

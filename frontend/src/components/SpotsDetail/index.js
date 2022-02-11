@@ -2,11 +2,13 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom'
 import SpotEditFormModal from '../SpotEditFormModal';
-import { deleteSpot } from '../../store/spotReducer';
+import { deleteSpot, getSpots } from '../../store/spotReducer';
 import './SpotsDetail.css'
+import ReviewList from '../ReviewList';
+import { useEffect } from 'react';
+// import ReviewCreateForm from '../ReviewCreateForm'
 
 
-// import { getSpots } from '../../store/spotReducer'
 
 const SpotDetail = ({spots}) => {
     const dispatch = useDispatch()
@@ -23,6 +25,9 @@ const SpotDetail = ({spots}) => {
     // console.log(user?.id)
     // console.log(spotUser)
     // console.log(spotUser?.userId)
+    useEffect(() => {
+        dispatch(getSpots())
+    },[dispatch])
 
     const handleClick = async () => {
         await dispatch(deleteSpot(spotId))
@@ -35,10 +40,7 @@ const SpotDetail = ({spots}) => {
         spotEdits = (
             <div>
                 <SpotEditFormModal />
-                <button className='deleteSpotButton' onClick={
-                    async () => {
-                    dispatch(deleteSpot(spotId))
-                    history.push('/')}} >
+                <button className='deleteSpotButton' onClick={handleClick} >
                 Delete</button>
             </div>
         )
@@ -64,15 +66,20 @@ if (spotUser) {
                 <li>Lat:{spot.lat} Lng:{spot.lng}</li>
             </ul>
             <div>
-                <img className='detailImage1' src={spot.url1} />
-                <img className='detailImage2' src={spot.url2} />
-                <img className='detailImage3' src={spot.url3} />
+                <img alt='Replace with a valid url.' className='detailImage1' src={spot.url1} />
+                <img alt='Replace with a valid url.' className='detailImage2' src={spot.url2} />
+                <img alt='Replace with a valid url.' className='detailImage3' src={spot.url3} />
 
             </div>
             </div>
             <div className='booking-Container'>
                 <p>${spot.price} / night</p>
                 <form></form>
+            </div>
+            <div className='review-Container'>
+                <h2>Previous Guest Reviews:</h2>
+                {/* <ReviewCreateForm /> */}
+                <ReviewList spot={spot} />
             </div>
 
         </div>

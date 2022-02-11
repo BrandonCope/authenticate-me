@@ -11,7 +11,7 @@ const SpotList = ({spots}) => {
     // const spotsObj = useSelector((state) => state.spotState.list)
     // const spots = Object.values(spotsObj)
     // console.log(spotsObj)
-    // console.log(spots)
+    console.log(spots)
     // spots.map(spot => (
     //     console.log(spot)
     // ))
