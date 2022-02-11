@@ -27,7 +27,7 @@ body {
 .logo {
     width: 75px;
     border-radius: 10px;
-    box-shadow: 10px 5px 5px ;
+    box-shadow: 10px 5px 5px black ;
 }
 
 .loggedOutUserNav {

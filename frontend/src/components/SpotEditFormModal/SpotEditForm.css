@@ -8,9 +8,10 @@
     height: 350px;
     padding: 50px;
     padding-top: 10px;
-    color: white;
+    color: black;
 
-    background-color: black;
+    background-color: goldenrod;
+
 }
 
 /* .editDiv {
@@ -29,9 +30,10 @@
 /* } */
 
 .editSubmit {
-    background-color: goldenrod;
+    background-color: black;
     margin: 10px;
     border-radius: 30px;
+    color: white;
     /* padding-right: 50px;
     padding-left: 50px; */
 }
@@ -44,8 +46,4 @@
 
 .editFormContainer {
     color: white;
-}
-
-body {
-    /* color: white; */
 }

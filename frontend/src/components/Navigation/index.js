@@ -36,7 +36,7 @@ function Navigation({ isLoaded }){
             <img className='logo' src={logo} />
           {/* </a> */}
         </NavLink>
-        <h1 spellCheck="false">Heir B&B</h1>
+        <h2 spellCheck="false">Heir B&B</h2>
         <div className='sessionLinks'>
         {isLoaded && sessionLinks}
         </div>

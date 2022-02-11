@@ -53,8 +53,8 @@ function SpotEditForm() {
     return (
         <div className="editFormContainer">
         <form className='editForm' onSubmit={handleSubmit} >
-         <h2>Hello from edit form</h2>
-         <label>
+         <h2>Edit Your Estate</h2>
+         <label> Image 1 URL:
                     <input
                     placeholder='Image 1 add your url'
                     type="text"
@@ -63,7 +63,7 @@ function SpotEditForm() {
                     required
                     />
                 </label>
-                <label>
+                <label> Image 2 URL:
                     <input
                     placeholder='Image 2 add your url'
                     type="text"
@@ -72,7 +72,7 @@ function SpotEditForm() {
                     required
                     />
                 </label>
-                <label>
+                <label> Image 3 URL:
                     <input
                     placeholder='Image 3 add your url'
                     type="text"
