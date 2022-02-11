@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from 'react-router-dom'
 import './SpotEditForm.css'
 import { editSpot, getSpots } from '../../store/spotReducer'
+import { useEditModal } from './index'
 
 function SpotEditForm() {
     const dispatch = useDispatch();
@@ -20,6 +21,7 @@ function SpotEditForm() {
     const [lng, setLng] = useState(`${spots.lng}`)
     const [name, setName] = useState(`${spots.name}`)
     const [price, setPrice] = useState(`${spots.price}`)
+    const {showModal, setShowModal} = useEditModal();
 
 
 
@@ -39,13 +41,13 @@ function SpotEditForm() {
             name,
             price,
         }
-        dispatch(editSpot(spotId, payload))
-        // setShowModal(false)
-        // history.push(`/spots/${editSpot.id}`)
+      dispatch(editSpot(spotId, payload))
+      setShowModal(false)
+      history.push(`/spots/${spotId}`)
     }
 
     useEffect(() => {
-        dispatch(getSpots())
+        dispatch(editSpot())
     },[dispatch])
 
 
