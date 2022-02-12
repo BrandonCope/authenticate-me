@@ -25,9 +25,6 @@ export const removeSpots = (spotId) => ({
     spotId
 })
 
-// export const loadImages = (images) => {
-//     return { type: LOAD_IMAGE, images}
-// }
 
 export const getSpots = () => async dispatch => {
     const response = await fetch(`/api/spots`)
@@ -60,7 +57,7 @@ export const createSpot = (payload) => async dispatch => {
         dispatch(addSpots(newSpot))
         return newSpot
     }
-    
+
 }
 
 export const editSpot = (spotId, payload) => async dispatch => {

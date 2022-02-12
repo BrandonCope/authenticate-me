@@ -1,4 +1,3 @@
-
 import React, {useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom'
@@ -15,7 +14,7 @@ function ReviewForm() {
 
     const user = useSelector((state) => state.session.user?.id)
     const username = useSelector((state) => state.session.user?.username)
-    console.log(username)
+    // console.log(username)
 
 
     const handleSubmit = (e) => {

@@ -31,7 +31,7 @@ function LoginForm() {
       <label>
 
         <input
-        placeholder="Username or Email"
+          placeholder="Email"
           type="text"
           value={credential}
           onChange={(e) => setCredential(e.target.value)}
@@ -39,9 +39,9 @@ function LoginForm() {
         />
       </label>
       <label>
-        
+
         <input
-        placeholder="Password"
+          placeholder="Password"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}

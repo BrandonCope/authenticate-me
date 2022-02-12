@@ -1,12 +1,14 @@
 // import { useEffect } from 'react'
-import {  useSelector } from 'react-redux'
+import {  useDispatch, useSelector } from 'react-redux'
+import ReviewEditFormModal from '../ReviewEditFormModal';
+import { deleteReview } from '../../store/reviewReducer';
 import './ReviewList.css'
 
 
 // import { getReviews } from '../../store/reviewReducer'
-let key;
 const ReviewList = ({spot}) => {
-    // const dispatch = useDispatch();
+    let key;
+    const dispatch = useDispatch();
     const reviewArr = []
     const reviews = useSelector((state) => state.reviewState)
     const user = useSelector((state) => state.session.user)
@@ -50,6 +52,7 @@ const ReviewList = ({spot}) => {
 
 
 
+
     return (
         <div>
             <h2 className='reviewListTitle'>HELLO FROM REVIEW LIST</h2>
@@ -59,8 +62,11 @@ const ReviewList = ({spot}) => {
                 <p>{review.review}</p>
                 {user ? <> {user.id === review.userId  &&
                 <div>
-                    <button>edit</button>
-                    <button>delete</button>
+                    <ReviewEditFormModal review={review} />
+                    {/* <button>edit</button> */}
+                    <button onClick={async () => {
+                        await dispatch(deleteReview(review.id))
+                    }}>delete</button>
                     </div>}</>:<></>}
                 {/* {reviewEdits} */}
             </div>

@@ -29,6 +29,7 @@ const SpotList = ({spots}) => {
                         <div className='listDetail'>
                             <img className='listImage'
                             src={spot.url1}
+                            alt="logo"
                             />
                             <div className='subListDetail'>
                         <p>Luxury living in {spot.city}</p>

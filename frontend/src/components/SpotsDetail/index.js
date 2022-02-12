@@ -6,19 +6,39 @@ import './SpotsDetail.css'
 import ReviewList from '../ReviewList';
 import { useEffect } from 'react';
 import ReviewFormModal from '../ReviewFormModal'
-import { getReviews } from '../../store/reviewReducer';
+import { deleteReview, getReviews } from '../../store/reviewReducer';
 
 
 
 const SpotDetail = ({spots}) => {
+    let key;
     const dispatch = useDispatch()
     const history = useHistory();
     const {spotId} = useParams();
+    const reviewArr = []
 
     const spot = spots.find(spot => spot.id === +spotId)
 
     const user = useSelector((state) => state.session.user)
     const spotUser = useSelector((state) => state.spotState.list[spotId])
+    const reviews = useSelector((state) => state.reviewState)
+
+    for (key in reviews) {
+        reviewArr.push(reviews[key])
+    }
+
+    const pageReviews = reviewArr.filter(review => {
+        // console.log(review.spotId)
+        // console.log(spot.id)
+        if (review.spotId === spot.id) {
+
+            return review;
+        } else {
+            return false;
+        }
+    })
+
+    console.log(pageReviews)
 
     useEffect(() => {
         dispatch(getSpots())
@@ -26,9 +46,29 @@ const SpotDetail = ({spots}) => {
     },[dispatch])
 
     const handleClick = async () => {
+        pageReviews.forEach(review => {
+        dispatch(deleteReview(review.id))
+        })
+
         await dispatch(deleteSpot(spotId))
         history.push('/')
     }
+
+    // const sessionUser = useSelector(state => state.session.user);
+
+  let sessionLinks;
+  if (user) {
+    sessionLinks = (
+      <div >
+        <ReviewFormModal />
+      </div>
+    );
+  } else {
+    sessionLinks = (
+      <>
+      </>
+    );
+  }
 
 
     let spotEdits;
@@ -75,7 +115,7 @@ if (spotUser) {
             </div>
             <div className='review-Container'>
                 <h2>Previous Guest Reviews:</h2>
-                <ReviewFormModal />
+                {sessionLinks}
                 <ReviewList spot={spot} />
             </div>
 

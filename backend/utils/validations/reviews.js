@@ -25,9 +25,6 @@ exports.validateCreate = [
 ]
 
 exports.validateUpdate = [
-    userId,
-    spotId,
-    username,
     review,
     handleValidationErrors
 ]

@@ -7,7 +7,6 @@ import { useEditModal } from './index'
 
 function SpotEditForm() {
     const dispatch = useDispatch();
-    // const history = useHistory();
     const {spotId} = useParams();
     const spots = useSelector((state) => state.spotState.list[spotId])
     const [url1, setUrl1] = useState(`${spots.url1}`)

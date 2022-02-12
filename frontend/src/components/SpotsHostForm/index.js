@@ -17,7 +17,7 @@ const SpotHostForm = () => {
     const [lng, setLng] = useState('')
     const [name, setName] = useState('')
     const [price, setPrice] = useState('')
-    const [errors, setErrors] = useState([])
+    // const [errors, setErrors] = useState([])
     const history = useHistory();
     // const [errors, setErrors] = useState
 
@@ -28,7 +28,7 @@ const SpotHostForm = () => {
   // const imageObj = useSelector((state) => state.imageState.list)
 //   console.log(spotsObj.list)
 
-    // const error 
+    // const error
 
   const reset = () => {
       setUrl1("");

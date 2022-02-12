@@ -63,6 +63,11 @@ router.put('/:id(\\d+)', restoreUser, spotValidations.validateUpdate, asyncHandl
 router.delete('/:spotId', asyncHandler(async(req,res) => {
     const {spotId} = req.params;
     const deleteSpot = await Spot.findByPk(spotId)
+    // const deleteReviews = await Review.findAll({ where: {spotId: [deleteSpot.id]}})
+
+    // deleteReviews.forEach(async(review) => {
+    //     await review.destroy()
+    // })
     await deleteSpot.destroy();
     res.json({ message: 'success' })
 }))
