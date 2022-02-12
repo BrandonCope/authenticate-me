@@ -32,9 +32,7 @@ function Navigation({ isLoaded }){
 
     <ul className='navBar'>
         <NavLink exact to="/">
-          {/* <a href='' className='logo'> */}
-            <img className='logo' src={logo} />
-          {/* </a> */}
+            <img alt='logo' className='logo' src={logo} />
         </NavLink>
         <h2 spellCheck="false">Heir B&B</h2>
         <div className='sessionLinks'>

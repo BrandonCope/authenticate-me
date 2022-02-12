@@ -8,15 +8,18 @@ const userId = check('userId')
 const url1 = check('url1')
     .notEmpty()
     .withMessage('cannot be empty')
-    .isURL();
-const url2 = check('url1')
+    .isURL({protocols: ['http','https','ftp']})
+    .withMessage('must be a valid url')
+const url2 = check('url2')
     .notEmpty()
     .withMessage('cannot be empty')
-    .isURL();
-const url3 = check('url1')
+    .isURL()
+    .withMessage('must be a valid url')
+const url3 = check('url3')
     .notEmpty()
     .withMessage('cannot be empty')
-    .isURL();
+    .isURL()
+    .withMessage('must be a valid url')
 const address = check('address')
     .notEmpty()
     .withMessage('cannot be empty');

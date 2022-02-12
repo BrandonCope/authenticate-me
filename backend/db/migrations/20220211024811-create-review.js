@@ -22,6 +22,10 @@ module.exports = {
           model: 'Spots'
         }
       },
+      username: {
+        allowNull: false,
+        type: Sequelize.STRING(30),
+      },
       review: {
         allowNull: false,
         type: Sequelize.TEXT

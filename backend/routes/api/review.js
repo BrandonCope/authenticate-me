@@ -10,16 +10,28 @@ router.get('/', restoreUser, asyncHandler(async(req,res) => {
     return res.json(reviews)
 }))
 
+
+router.post('/', restoreUser, reviewValidations.validateCreate, asyncHandler(async(req,res) => {
+    const review = await Review.create(req.body)
+    res.json(review)
+}))
+
 router.get('/:id(\\d+)', asyncHandler(async(req,res) => {
     const {id} = req.params
     const review = await Review.findByPk(id);
     return res.json(review)
 }))
 
-router.post('/', restoreUser, reviewValidations.validateCreate, asyncHandler(async(req,res) => {
-    const review = await Review.create(req.body)
-    res.json(review)
-}))
+// router.get('/:id(\\d+)', asyncHandler(async(req,res) => {
+//     const {id} = req.params
+//     const review = await Review.findAll({
+//         where: {
+//             spotId: id
+//         },
+//         include: User
+//     });
+//     return res.json(review)
+// }))
 
 router.put('/:id(\\d+)', restoreUser, reviewValidations.validateUpdate, asyncHandler(async(req,res) => {
     const {id} = req.params

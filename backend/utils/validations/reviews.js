@@ -9,13 +9,17 @@ const spotId = check('spotId')
 .notEmpty()
 .withMessage('spotId cannot be empty')
 .isInt({min:0});
+const username = check('username')
+.notEmpty()
+.withMessage('username cannot be empty')
 const review = check('review')
 .notEmpty()
-.withMessage('cannot be empty')
+.withMessage('review cannot be empty')
 
 exports.validateCreate = [
     userId,
     spotId,
+    username,
     review,
     handleValidationErrors
 ]
@@ -23,6 +27,7 @@ exports.validateCreate = [
 exports.validateUpdate = [
     userId,
     spotId,
+    username,
     review,
     handleValidationErrors
 ]

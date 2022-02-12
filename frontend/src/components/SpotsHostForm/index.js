@@ -17,15 +17,18 @@ const SpotHostForm = () => {
     const [lng, setLng] = useState('')
     const [name, setName] = useState('')
     const [price, setPrice] = useState('')
-    // const [errors, setErrors] = useState([])
+    const [errors, setErrors] = useState([])
     const history = useHistory();
+    // const [errors, setErrors] = useState
 
-    const user = useSelector((state) => state.session.user.id)
+    const user = useSelector((state) => state.session.user?.id)
     // console.log(user.id)
     // const spotsObj = useSelector((state) => state.spotState)
     //   const spots = Object.values(spotsObj)
   // const imageObj = useSelector((state) => state.imageState.list)
 //   console.log(spotsObj.list)
+
+    // const error 
 
   const reset = () => {
       setUrl1("");
@@ -73,6 +76,7 @@ const SpotHostForm = () => {
                     placeholder='Image 1 add your url'
                     type="text"
                     value={url1}
+                    // pattern="https://.*"
                     onChange={(e) => setUrl1(e.target.value)}
                     required
                     />
@@ -82,6 +86,7 @@ const SpotHostForm = () => {
                     placeholder='Image 2 add your url'
                     type="text"
                     value={url2}
+                    // pattern="https://.*"
                     onChange={(e) => setUrl2(e.target.value)}
                     required
                     />
@@ -91,6 +96,7 @@ const SpotHostForm = () => {
                     placeholder='Image 3 add your url'
                     type="text"
                     value={url3}
+                    // pattern="https://.*"
                     onChange={(e) => setUrl3(e.target.value)}
                     required
                     />
@@ -165,6 +171,7 @@ const SpotHostForm = () => {
                     type="number"
                     value={price}
                     onChange={(e) => setPrice(Number(e.target.value))}
+                    required
                     />
                 </label>
 

@@ -5,7 +5,8 @@ import { deleteSpot, getSpots } from '../../store/spotReducer';
 import './SpotsDetail.css'
 import ReviewList from '../ReviewList';
 import { useEffect } from 'react';
-// import ReviewCreateForm from '../ReviewCreateForm'
+import ReviewFormModal from '../ReviewFormModal'
+import { getReviews } from '../../store/reviewReducer';
 
 
 
@@ -21,6 +22,7 @@ const SpotDetail = ({spots}) => {
 
     useEffect(() => {
         dispatch(getSpots())
+        dispatch(getReviews)
     },[dispatch])
 
     const handleClick = async () => {
@@ -34,6 +36,7 @@ const SpotDetail = ({spots}) => {
         spotEdits = (
             <div>
                 <SpotEditFormModal />
+
                 <button className='deleteSpotButton' onClick={handleClick} >
                 Delete</button>
             </div>
@@ -72,7 +75,7 @@ if (spotUser) {
             </div>
             <div className='review-Container'>
                 <h2>Previous Guest Reviews:</h2>
-                {/* <ReviewCreateForm /> */}
+                <ReviewFormModal />
                 <ReviewList spot={spot} />
             </div>
 

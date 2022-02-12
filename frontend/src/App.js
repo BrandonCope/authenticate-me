@@ -29,13 +29,13 @@ function App() {
 
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
-      <Route exact path={'/spots/new'}>
-            <SpotHostForm spots={spots} />
-          </Route>
-          <div className="pageDiv">
+            <Navigation isLoaded={isLoaded} />
+                <div className="pageDiv">
       {isLoaded && (
         <Switch>
+            <Route exact path={'/spots/new'}>
+                  <SpotHostForm spots={spots} />
+                </Route>
 
           <Route exact path={'/'}>
             <h1>Welcome to Heir B&B!</h1>

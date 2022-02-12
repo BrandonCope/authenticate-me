@@ -1,8 +1,8 @@
-import React, { useState, useEffect, createContext, useContext } from 'react';
+import React, { useState, createContext, useContext } from 'react';
 import { Modal } from '../../context/Modal';
 import SpotEditForm from './SpotEditForm';
-import { getSpots } from '../../store/spotReducer'
-import { useSelector, useDispatch } from 'react-redux'
+// import { getSpots } from '../../store/spotReducer'
+// import { useDispatch } from 'react-redux'
 import './SpotEditForm.css'
 // import LoginForm from './LoginForm';
 
@@ -11,11 +11,11 @@ export const useEditModal = () => useContext(EditModalContext)
 
 function SpotEditFormModal() {
   const [showModal, setShowModal] = useState(false);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getSpots())
-},[dispatch])
+//   useEffect(() => {
+//     dispatch(getSpots())
+// },[dispatch])
 
   return (
     <EditModalContext.Provider

@@ -55,13 +55,12 @@ export const createSpot = (payload) => async dispatch => {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(payload)
     })
-    console.log(response)
     if(response.ok) {
         const newSpot = await response.json()
         dispatch(addSpots(newSpot))
         return newSpot
     }
-    // return response;
+    
 }
 
 export const editSpot = (spotId, payload) => async dispatch => {
@@ -122,7 +121,7 @@ const spotReducer = (state = initialState, action) => {
             return newState
         case UPDATE:
             newState = {...state}
-            newState[action.editSpot.id] = action.editSpot
+            newState.list = {...newState.list, [action.editSpot.id]: action.editSpot}
             return newState
         case REMOVE:
             newState = {...state}
