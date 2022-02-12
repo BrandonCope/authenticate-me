@@ -12,19 +12,19 @@ module.exports = {
      {
        userId:1,
        spotId:1,
-       firstName:"Demo",
+       username:"Demo-User",
        review:"Loved the fountain.",
      },
      {
       userId:2,
       spotId:1,
-      firstName:"Chad",
+      username:"Chad",
       review:"Great place to host company outing."
      },
      {
       userId:3,
       spotId:2,
-      firstName:"Karen",
+      username:"Karen",
       review:"A magnificent piece of history."
      },
    ], {});

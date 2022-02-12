@@ -22,7 +22,7 @@ module.exports = {
           model: 'Spots'
         }
       },
-      firstName: {
+      username: {
         allowNull: false,
         type: Sequelize.STRING(30),
       },

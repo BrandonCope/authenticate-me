@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const Review = sequelize.define('Review', {
     userId: DataTypes.INTEGER,
     spotId: DataTypes.INTEGER,
-    firstName: DataTypes.STRING,
+    username: DataTypes.STRING,
     review: DataTypes.TEXT
   }, {});
   Review.associate = function(models) {

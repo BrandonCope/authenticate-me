@@ -24,30 +24,6 @@ module.exports = (sequelize, DataTypes) => {
         len: [3, 256],
       }
     },
-    firstName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [4, 30],
-        isNotEmail(value) {
-          if (Validator.isEmail(value)) {
-            throw new Error('Cannot be an email.');
-          }
-        }
-      }
-      },
-    lastName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [4, 30],
-        isNotEmail(value) {
-          if (Validator.isEmail(value)) {
-            throw new Error('Cannot be an email.');
-          }
-        }
-      }
-    },
     hashedPassword: {
       type: DataTypes.STRING.BINARY,
       allowNull: false,
