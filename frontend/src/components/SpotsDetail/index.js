@@ -30,7 +30,7 @@ const SpotDetail = ({spots}) => {
     const pageReviews = reviewArr.filter(review => {
         // console.log(review.spotId)
         // console.log(spot.id)
-        if (review.spotId === spot.id) {
+        if (review?.spotId === spot?.id) {
 
             return review;
         } else {

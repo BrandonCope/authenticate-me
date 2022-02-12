@@ -55,7 +55,7 @@ const ReviewList = ({spot}) => {
 
     return (
         <div>
-            <h2 className='reviewListTitle'>HELLO FROM REVIEW LIST</h2>
+            {/* <h2 className='reviewListTitle'>HELLO FROM REVIEW LIST</h2> */}
             {pageReviews.map(review => (
             <div key={review.id} className='individualReview' >
                 <h3>{review.username}</h3>

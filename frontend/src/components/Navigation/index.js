@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import * as sessionActions from "../../store/session";
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignUpFormModal from '../SignupFormModal';
@@ -9,7 +10,30 @@ import logo from '../assets/logo.png'
 // import SpotHostForm from '../SpotsHostForm';
 
 function Navigation({ isLoaded }){
+  const dispatch = useDispatch();
+  const [credential, setCredential] = useState("");
+  const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState([]);
   const sessionUser = useSelector(state => state.session.user);
+
+
+
+  const handleClick = (e) => {
+    e.preventDefault();
+
+    const demoLogin = {
+      credential: "demo@user.com",
+      password: "password"
+    }
+
+    setErrors([]);
+    return dispatch(sessionActions.login(demoLogin)).catch(
+      async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      }
+    );
+  }
 
   let sessionLinks;
   if (sessionUser) {
@@ -24,9 +48,12 @@ function Navigation({ isLoaded }){
       <>
         <LoginFormModal />
         <SignUpFormModal />
+        <button className='loginModalButton' onClick={handleClick} >Demo</button>
       </>
     );
   }
+
+
 
   return (
 
