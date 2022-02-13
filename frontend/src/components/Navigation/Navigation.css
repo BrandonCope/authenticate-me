@@ -14,6 +14,11 @@ body {
     color: inherit;
 }
 
+/* .active {
+    text-decoration: none;
+    color: inherit;
+} */
+
 /* .hostButton > a:hover {
     color: black;
 } */
@@ -99,6 +104,12 @@ body {
     /* color: white; */
 
 }
+
+.navBar > a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .profileItem {
     padding-bottom: 5px;
 }

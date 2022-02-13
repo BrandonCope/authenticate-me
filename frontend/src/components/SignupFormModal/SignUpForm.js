@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import './SignupFormPage.css'
@@ -11,20 +11,22 @@ function SignUpForm() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-  // useEffect(() => {
-  //   const validate = [];
-  //   if (username.length < 2) errors.push("Username Must Be 2 Or More Characters!")
-  //   if (!email.includes('@')) errors.push('Enter A Valid Email!')
+  useEffect(() => {
+    const validate = [];
+    if (username.length < 4) validate.push("Username must Be 4 Or More Characters!")
+    if (!email.includes('@')) validate.push('Enter A Valid Email!')
+    if (password.length < 6) validate.push('Password Must Be 6 or More Characters!')
+    if (password !== confirmPassword) validate.push('Confirmed Password Must Match Password')
 
-  //   setErrors(validate)
+    setErrors(validate)
 
-  // }, [username, email])
+  }, [username, email, password, confirmPassword])
 
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password === confirmPassword) {
+    if (errors.length === 0 && password === confirmPassword) {
       setErrors([]);
       return dispatch(sessionActions.signup({ email, username, password }))
         .catch(async (res) => {
@@ -39,7 +41,7 @@ function SignUpForm() {
     <form className="signUpForm" onSubmit={handleSubmit}>
       <h2>Create an account.</h2>
       <ul>
-        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+        {errors.length > 0 && errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
       <label>
         <input

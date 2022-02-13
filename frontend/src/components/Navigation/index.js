@@ -56,7 +56,9 @@ function Navigation({ isLoaded }){
         <NavLink exact to="/">
             <img alt='logo' className='logo' src={logo} />
         </NavLink>
+        <NavLink exact to="/">
         <h1 className='pageTitle' spellCheck="false">Heir B&B</h1>
+        </NavLink>
         <div className='sessionLinks'>
         {isLoaded && sessionLinks}
         </div>

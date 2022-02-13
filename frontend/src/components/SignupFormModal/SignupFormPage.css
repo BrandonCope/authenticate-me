@@ -5,9 +5,13 @@
     border: 5px solid;
     border-radius: 10px;
     width: 350px;
-    height: 250px;
+    height: 350px;
     padding: 50px;
     background-color: goldenrod;
+}
+
+.signUpForm > ul {
+    padding: 5px;
 }
 
 .signUpSubmit {
