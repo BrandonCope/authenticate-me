@@ -18,8 +18,7 @@ const ReviewList = ({spot}) => {
     }
 
     const pageReviews = reviewArr.filter(review => {
-        // console.log(review.spotId)
-        // console.log(spot.id)
+
         if (review.spotId === spot.id) {
 
             return review;
@@ -28,43 +27,18 @@ const ReviewList = ({spot}) => {
         }
     })
 
-// let reviewEdits;
-// pageReviews.forEach(review => {
-//     console.log(review.userId)
-//     if (user) {
-//         reviewEdits = (
-//             <div>
-//                 {/* <SpotEditFormModal /> */}
-//                 <button>Edit</button>
-//                 <button className='deleteSpotButton'  >
-//                 Delete</button>
-//             </div>
-//         )
-//     } else {
-//         reviewEdits = (
-//             <>
-//             </>
-//         )
-//     }
-
-// })
-
-
-
-
-
     return (
         <div>
             {/* <h2 className='reviewListTitle'>HELLO FROM REVIEW LIST</h2> */}
             {pageReviews.map(review => (
             <div key={review.id} className='individualReview' >
                 <h3>{review.username}</h3>
-                <p>{review.review}</p>
+                <p className='reviewText' >{review.review}</p>
                 {user ? <> {user.id === review.userId  &&
                 <div>
                     <ReviewEditFormModal review={review} />
                     {/* <button>edit</button> */}
-                    <button onClick={async () => {
+                    <button className='deleteReviewButton' onClick={async () => {
                         await dispatch(deleteReview(review.id))
                     }}>delete</button>
                     </div>}</>:<></>}

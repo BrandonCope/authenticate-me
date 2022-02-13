@@ -3,9 +3,17 @@ body {
     /* color: white; */
 }
 
+.pageTitle {
+    font-family: 'Dancing Script', cursive;
+    font-size: 75px;
+}
+
 .navBar {
     display: flex;
+    position: sticky;
+    top: 0;
     justify-content: space-around;
+    align-items: center;
     /* align-items: center; */
     /* margin-top: 200px; */
     /* background-color: black; */
@@ -13,7 +21,11 @@ body {
     background-color: goldenrod;
     padding: 30px;
     border-radius: 10px;
+    margin-top: 0;
+    height: 50px;
+    opacity: 0.8;
     /* color: white; */
+
 }
 
 .sessionLinks {
@@ -29,6 +41,12 @@ body {
     border-radius: 10px;
     box-shadow: 10px 5px 5px black ;
 }
+/* .logo > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+} */
 
 .loggedOutUserNav {
     display: flex;
@@ -37,4 +55,15 @@ body {
     border-radius: 5px;
     /* color: goldenrod; */
     background-color: whitesmoke;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+.profile-dropdown{
+    display: flex;
+    flex-direction: column;
+    height: 100px;
 }

@@ -54,36 +54,37 @@ function SpotEditForm() {
         <div className="editFormContainer">
         <form className='editForm' onSubmit={handleSubmit} >
          <h2>Edit Your Estate</h2>
-         <label> Image 1 URL:
+         <label> 
                     <input
                     placeholder='Image 1 add your url'
-                    type="text"
+                    type="url"
                     value={url1}
                     onChange={(e) => setUrl1(e.target.value)}
                     required
                     />
                 </label>
-                <label> Image 2 URL:
+                <label>
                     <input
                     placeholder='Image 2 add your url'
-                    type="text"
+                    type="url"
                     value={url2}
                     onChange={(e) => setUrl2(e.target.value)}
                     required
                     />
                 </label>
-                <label> Image 3 URL:
+                <label>
                     <input
                     placeholder='Image 3 add your url'
-                    type="text"
+                    type="url"
                     value={url3}
                     onChange={(e) => setUrl3(e.target.value)}
                     required
                     />
                 </label>
         <label>
-            Address:
+
             <input
+            placeholder="Address"
             type="text"
             // defaultValue={spots.address}
             value={address}
@@ -92,8 +93,9 @@ function SpotEditForm() {
             />
         </label>
         <label>
-            City:
+
             <input
+            placeholder="City"
             type="text"
             // placeholder={spots.city}
             value={city}
@@ -102,8 +104,9 @@ function SpotEditForm() {
             />
         </label>
         <label>
-            State:
+
             <input
+            placeholder="State"
             type="text"
             value={state}
             onChange={(e) => setState(e.target.value)}
@@ -111,8 +114,9 @@ function SpotEditForm() {
             />
         </label>
         <label>
-            Country:
+
             <input
+            placeholder="Country"
             type="text"
             value={country}
             onChange={(e) => setCountry(e.target.value)}
@@ -120,24 +124,27 @@ function SpotEditForm() {
             />
         </label>
         <label>
-            Latitude:
+
             <input
+            placeholder="Latitude"
             type="number"
             value={lat}
             onChange={(e) => setLat(Number(e.target.value))}
             />
         </label>
         <label>
-            Longitude:
+
             <input
+            placeholder="Longitude"
             type="number"
             value={lng}
             onChange={(e) => setLng(Number(e.target.value))}
             />
         </label>
         <label>
-            Estate Name:
+
             <input
+            placeholder="Estate Name"
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -145,8 +152,9 @@ function SpotEditForm() {
             />
         </label>
         <label>
-            Price:
+
             <input
+            placeholder="Price"
             type="number"
             value={price}
             onChange={(e) => setPrice(Number(e.target.value))}

@@ -1,4 +1,4 @@
-.reviewFormContainer {
+.reviewEditForm {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -12,7 +12,16 @@
     background-color: goldenrod;
 }
 
-.createReviewButton {
+.reviewEditInput {
+    resize: none;
+    border-radius: 5px;
+    background-color: antiquewhite;
+    font-size: medium;
+    overflow: visible;
+  
+}
+
+.reviewEditButton {
     background-color: black;
     color:antiquewhite;
     margin: 10px;
@@ -24,31 +33,7 @@
     font-size:medium;
 }
 
-.createReviewButton:hover {
+.reviewEditButton:hover {
     background-color: antiquewhite;
     color: black;
-}
-
-
-.reviewInput {
-    /* height: 100px; */
-    resize: none;
-    border-radius: 5px;
-    background-color: antiquewhite;
-    font-size: medium;
-    overflow: visible;
-}
-
-.reviewModalButton {
-    background-color: goldenrod;
-    margin: 10px;
-    border-radius: 30px;
-    font-size: medium;
-    font-family:Arial, Helvetica, sans-serif;
-}
-
-.reviewModalButton:hover {
-    background-color: black;
-    border-color: antiquewhite;
-    color: antiquewhite;
 }

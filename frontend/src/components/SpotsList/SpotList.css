@@ -1,9 +1,20 @@
+body {
+    font-style: strong;
+}
+
+.spotListContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .listContainer {
     border: solid;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    /* align-items: center; */
     margin: 15px;
     padding: 15px;
     margin-left: 400px;

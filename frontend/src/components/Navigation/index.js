@@ -46,9 +46,10 @@ function Navigation({ isLoaded }){
   } else {
     sessionLinks = (
       <>
-        <LoginFormModal />
+      <ProfileButton user={sessionUser} />
+        {/* <LoginFormModal />
         <SignUpFormModal />
-        <button className='loginModalButton' onClick={handleClick} >Demo</button>
+        <button className='loginModalButton' onClick={handleClick} >Demo</button> */}
       </>
     );
   }
@@ -61,7 +62,7 @@ function Navigation({ isLoaded }){
         <NavLink exact to="/">
             <img alt='logo' className='logo' src={logo} />
         </NavLink>
-        <h2 spellCheck="false">Heir B&B</h2>
+        <h2 className='pageTitle' spellCheck="false">Heir B&B</h2>
         <div className='sessionLinks'>
         {isLoaded && sessionLinks}
         </div>

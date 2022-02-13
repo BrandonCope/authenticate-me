@@ -21,7 +21,7 @@ const SpotList = ({spots}) => {
     }, [dispatch]);
 
     return (
-        <div>
+        <div className='spotListContainer'>
             <h1>Current Estates</h1>
             <ul>
                 {spots.map(spot => (

@@ -91,7 +91,7 @@ const SpotDetail = ({spots}) => {
 if (spotUser) {
     return (
 
-        <div>
+        <div className='spotDetailContainer'>
             <h1>{spot.name}</h1>
             {spotEdits}
             {/* <SpotEditFormModal />
@@ -103,9 +103,9 @@ if (spotUser) {
                 <li>Lat:{spot.lat} Lng:{spot.lng}</li>
             </ul>
             <div>
-                <img alt='Replace with a valid url.' className='detailImage1' src={spot.url1} />
-                <img alt='Replace with a valid url.' className='detailImage2' src={spot.url2} />
-                <img alt='Replace with a valid url.' className='detailImage3' src={spot.url3} />
+                <img alt='Replace with a valid .jpg' className='detailImage1' src={spot.url1} />
+                <img alt='Replace with a valid .jpg' className='detailImage2' src={spot.url2} />
+                <img alt='Replace with a valid .jpg' className='detailImage3' src={spot.url3} />
 
             </div>
             </div>

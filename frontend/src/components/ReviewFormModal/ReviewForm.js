@@ -5,6 +5,8 @@ import { useParams } from 'react-router-dom'
 import { createReview } from "../../store/reviewReducer";
 import { useReviewModal } from "./index";
 
+import './ReviewForm.css'
+
 function ReviewForm() {
     const dispatch = useDispatch();
     const {spotId} = useParams();
@@ -33,21 +35,21 @@ function ReviewForm() {
     }
 
     return (
-        <div>
+        <div className="reviewFormContainer">
             <form onSubmit={handleSubmit}>
             <h2>Post A Review:</h2>
-            {/* <label>spotId</label>
-            <input
-            value={spotId}
-            onChange={(e) => setSpotId(e.target.value)}
-            ></input> */}
-            <input
+            <textarea
+            className="reviewInput"
+            type="text"
+            rows="7"
+            cols="45"
+            maxLength="300"
             placeholder="Type Review Here..."
             value={review}
             onChange={(e) => setReview(e.target.value)}
             required
-            ></input>
-            <button  >Create Review</button>
+            ></textarea>
+            <button className="createReviewButton"  >Create Review</button>
             </form>
         </div>
     )

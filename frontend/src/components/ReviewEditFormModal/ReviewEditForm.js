@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { editReview } from "../../store/reviewReducer";
 import { useReviewEditModal } from "./index";
+import './ReviewEditForm.css'
 
 function ReviewEditForm({review}) {
     const dispatch = useDispatch();
@@ -21,16 +22,21 @@ function ReviewEditForm({review}) {
     }
     return (
         // <h2>Hello From Review Edit Form</h2>
-        <div>
+        <div className="reviewEditForm">
         <form onSubmit={handleSubmit} >
         <h2>Edit Your Review:</h2>
-        <input
+        <textarea
+        className="reviewEditInput"
         placeholder="Type Review Here..."
+        type="text"
+        rows="7"
+        cols="45"
+        maxLength="300"
         value={reviewEdit}
         onChange={(e) => setReviewEdit(e.target.value)}
         required
-        ></input>
-        <button  >Create Review</button>
+        ></textarea>
+        <button className="reviewEditButton"  >Edit Review</button>
         </form>
     </div>
     )

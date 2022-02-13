@@ -74,7 +74,7 @@ const SpotHostForm = () => {
             <label>
                     <input
                     placeholder='Image 1 add your url'
-                    type="text"
+                    type="url"
                     value={url1}
                     // pattern="https://.*"
                     onChange={(e) => setUrl1(e.target.value)}
@@ -84,7 +84,7 @@ const SpotHostForm = () => {
                 <label>
                     <input
                     placeholder='Image 2 add your url'
-                    type="text"
+                    type="url"
                     value={url2}
                     // pattern="https://.*"
                     onChange={(e) => setUrl2(e.target.value)}
@@ -94,7 +94,7 @@ const SpotHostForm = () => {
                 <label>
                     <input
                     placeholder='Image 3 add your url'
-                    type="text"
+                    type="url"
                     value={url3}
                     // pattern="https://.*"
                     onChange={(e) => setUrl3(e.target.value)}
