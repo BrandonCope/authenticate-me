@@ -9,7 +9,6 @@ export const useReviewEditModal = () => useContext(ReviewEditModalContext);
 function ReviewEditFormModal({review}) {
     const [showModal, setShowModal] = useState(false);
 
-    // console.log(review)
     return (
         <ReviewEditModalContext.Provider
             value={{

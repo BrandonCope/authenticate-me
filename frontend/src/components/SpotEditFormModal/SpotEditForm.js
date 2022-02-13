@@ -53,9 +53,10 @@ function SpotEditForm() {
     return (
         <div className="editFormContainer">
         <form className='editForm' onSubmit={handleSubmit} >
-         <h2>Edit Your Estate</h2>
-         <label> 
+         <h2>Edit Your Estate:</h2>
+         <label>
                     <input
+                    className="editSpotInput"
                     placeholder='Image 1 add your url'
                     type="url"
                     value={url1}
@@ -65,6 +66,7 @@ function SpotEditForm() {
                 </label>
                 <label>
                     <input
+                      className="editSpotInput"
                     placeholder='Image 2 add your url'
                     type="url"
                     value={url2}
@@ -74,6 +76,7 @@ function SpotEditForm() {
                 </label>
                 <label>
                     <input
+                      className="editSpotInput"
                     placeholder='Image 3 add your url'
                     type="url"
                     value={url3}
@@ -84,6 +87,7 @@ function SpotEditForm() {
         <label>
 
             <input
+              className="editSpotInput"
             placeholder="Address"
             type="text"
             // defaultValue={spots.address}
@@ -95,6 +99,7 @@ function SpotEditForm() {
         <label>
 
             <input
+              className="editSpotInput"
             placeholder="City"
             type="text"
             // placeholder={spots.city}
@@ -106,6 +111,7 @@ function SpotEditForm() {
         <label>
 
             <input
+              className="editSpotInput"
             placeholder="State"
             type="text"
             value={state}
@@ -116,6 +122,7 @@ function SpotEditForm() {
         <label>
 
             <input
+              className="editSpotInput"
             placeholder="Country"
             type="text"
             value={country}
@@ -126,6 +133,7 @@ function SpotEditForm() {
         <label>
 
             <input
+              className="editSpotInput"
             placeholder="Latitude"
             type="number"
             value={lat}
@@ -135,6 +143,7 @@ function SpotEditForm() {
         <label>
 
             <input
+              className="editSpotInput"
             placeholder="Longitude"
             type="number"
             value={lng}
@@ -144,6 +153,7 @@ function SpotEditForm() {
         <label>
 
             <input
+              className="editSpotInput"
             placeholder="Estate Name"
             type="text"
             value={name}
@@ -154,6 +164,7 @@ function SpotEditForm() {
         <label>
 
             <input
+              className="editSpotInput"
             placeholder="Price"
             type="number"
             value={price}

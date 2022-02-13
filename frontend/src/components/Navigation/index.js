@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import * as sessionActions from "../../store/session";
@@ -11,9 +11,8 @@ import logo from '../assets/logo.png'
 
 function Navigation({ isLoaded }){
   const dispatch = useDispatch();
-  const [credential, setCredential] = useState("");
-  const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState([]);
+
+  // const [errors, setErrors] = useState([]);
   const sessionUser = useSelector(state => state.session.user);
 
 
@@ -26,13 +25,9 @@ function Navigation({ isLoaded }){
       password: "password"
     }
 
-    setErrors([]);
-    return dispatch(sessionActions.login(demoLogin)).catch(
-      async (res) => {
-        const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
-      }
-    );
+    // setErrors([]);
+    return dispatch(sessionActions.login(demoLogin))
+
   }
 
   let sessionLinks;
@@ -46,10 +41,9 @@ function Navigation({ isLoaded }){
   } else {
     sessionLinks = (
       <>
-      <ProfileButton user={sessionUser} />
-        {/* <LoginFormModal />
+        <LoginFormModal />
         <SignUpFormModal />
-        <button className='loginModalButton' onClick={handleClick} >Demo</button> */}
+        <button className='loginModalButton' onClick={handleClick} >Demo</button>
       </>
     );
   }
@@ -62,7 +56,7 @@ function Navigation({ isLoaded }){
         <NavLink exact to="/">
             <img alt='logo' className='logo' src={logo} />
         </NavLink>
-        <h2 className='pageTitle' spellCheck="false">Heir B&B</h2>
+        <h1 className='pageTitle' spellCheck="false">Heir B&B</h1>
         <div className='sessionLinks'>
         {isLoaded && sessionLinks}
         </div>

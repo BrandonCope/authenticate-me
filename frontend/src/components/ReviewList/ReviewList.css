@@ -1,3 +1,4 @@
+@media screen and (min-width: 400px) {
 .reviewListTitle {
     color: goldenrod;
 
@@ -41,7 +42,7 @@
     padding-right: 20px;
     padding-left: 20px;
     font-size:medium;
-
+    font-weight: bold;
 }
 
 .deleteReviewButton:hover {
@@ -52,3 +53,64 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
 }
+
+}
+
+@media screen and (max-width: 400px) {
+    .reviewListTitle {
+        color: goldenrod;
+
+    }
+
+    .individualReview {
+        border: solid;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        justify-content: flex-start;
+        margin: 15px;
+        padding: 15px;
+        /* margin-left: 400px;
+        margin-right: 400px; */
+        width: 300px;
+        background-color: goldenrod;
+        box-shadow: 10px 5px 5px antiquewhite;
+        font-style: strong;
+        color: black;
+    }
+
+    .reviewText {
+        word-break: break-all;
+        font-style: strong;
+        font-family: Arial, Helvetica, sans-serif;
+        /* box-shadow: 10px 5px 5px antiquewhite; */
+        background-color: black;
+        color: antiquewhite;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .deleteReviewButton {
+        background-color: black;
+        color:antiquewhite;
+        margin: 10px;
+        border: solid;
+        /* width: 500px; */
+        border-radius: 30px;
+        padding-right: 20px;
+        padding-left: 20px;
+        font-size:medium;
+        font-weight: bold;
+    }
+
+    .deleteReviewButton:hover {
+        background-color: antiquewhite;
+        color: black;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    }

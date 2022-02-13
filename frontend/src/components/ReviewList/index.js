@@ -5,7 +5,6 @@ import { deleteReview } from '../../store/reviewReducer';
 import './ReviewList.css'
 
 
-// import { getReviews } from '../../store/reviewReducer'
 const ReviewList = ({spot}) => {
     let key;
     const dispatch = useDispatch();
@@ -37,12 +36,10 @@ const ReviewList = ({spot}) => {
                 {user ? <> {user.id === review.userId  &&
                 <div>
                     <ReviewEditFormModal review={review} />
-                    {/* <button>edit</button> */}
                     <button className='deleteReviewButton' onClick={async () => {
                         await dispatch(deleteReview(review.id))
-                    }}>delete</button>
+                    }}>Delete</button>
                     </div>}</>:<></>}
-                {/* {reviewEdits} */}
             </div>
 
             ))}

@@ -16,7 +16,6 @@ function ReviewForm() {
 
     const user = useSelector((state) => state.session.user?.id)
     const username = useSelector((state) => state.session.user?.username)
-    // console.log(username)
 
 
     const handleSubmit = (e) => {

@@ -1,19 +1,26 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
-// import { Redirect } from "react-router-dom";
 import './SignupFormPage.css'
 
 function SignUpForm() {
   const dispatch = useDispatch();
-//   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-//   if (sessionUser) return <Redirect to="/" />;
+  // useEffect(() => {
+  //   const validate = [];
+  //   if (username.length < 2) errors.push("Username Must Be 2 Or More Characters!")
+  //   if (!email.includes('@')) errors.push('Enter A Valid Email!')
+
+  //   setErrors(validate)
+
+  // }, [username, email])
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -64,7 +71,7 @@ function SignUpForm() {
         />
       </label>
       <label>
-        
+
         <input
         placeholder="Confirm Password"
           type="password"

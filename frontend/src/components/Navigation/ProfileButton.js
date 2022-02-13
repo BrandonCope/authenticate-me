@@ -1,37 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import {NavLink} from 'react-router-dom'
-import LoginFormModal from "../LoginFormModal";
-import SignUpFormModal from "../SignupFormModal";
+// import LoginFormModal from "../LoginFormModal";
+// import SignUpFormModal from "../SignupFormModal";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
-  // const dispatch = useDispatch();
-  const [credential, setCredential] = useState("");
-  const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState([]);
-  const sessionUser = useSelector(state => state.session.user);
-
-
-
-  const handleClick = (e) => {
-    e.preventDefault();
-
-    const demoLogin = {
-      credential: "demo@user.com",
-      password: "password"
-    }
-
-    setErrors([]);
-    return dispatch(sessionActions.login(demoLogin)).catch(
-      async (res) => {
-        const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
-      }
-    );
-  }
+  
 
   const openMenu = () => {
     if (showMenu) return;
@@ -55,42 +32,34 @@ function ProfileButton({ user }) {
     dispatch(sessionActions.logout());
   };
 
-  let sessionLinks;
-  if (user) {
-    sessionLinks = (
-      <div className='loggedOutUserNav'>
-        <li>{user.username}</li>
-          <li>{user.email}</li>
-          <li>
-            <NavLink to={"/spots/new"}>Host a spot!</NavLink>
-            </li>
-          <li>
-            <button onClick={logout}>Log Out</button>
-          </li>
-        {/* <ProfileButton user={sessionUser} /> */}
-      </div>
-    );
-  } else {
-    sessionLinks = (
-      <>
-        <LoginFormModal />
-        <SignUpFormModal />
-        <button className='loginModalButton' onClick={handleClick} >Demo</button>
-      </>
-    );
-  }
+
 
   return (
-    <>
-      <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+    <div className="profileContainer">
+      <button className="profileButton" onClick={openMenu}>
+        <i className="fas fa-solid fa-bars" />
+        {/* <i class="fa-brands fa-airbnb"></i> */}
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
-          {sessionLinks}
+             <div className='loggedInUserNav'>
+                <li className="profileItem" >{user.username}</li>
+                <li className="profileItem">{user.email}</li>
+                <li className="profileItem">
+                  <button className="hostButton">
+
+                <NavLink to={"/spots/new"}>Host a spot!</NavLink>
+                  </button>
+                </li>
+                <li className="profileItem">
+                  <button className="logoutButton" onClick={logout}>Log Out</button>
+                </li>
+        {/* <ProfileButton user={sessionUser} /> */}
+           </div>
+          {/* {sessionLinks} */}
         </ul>
       )}
-    </>
+    </div>
   );
 }
 

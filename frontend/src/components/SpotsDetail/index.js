@@ -28,8 +28,7 @@ const SpotDetail = ({spots}) => {
     }
 
     const pageReviews = reviewArr.filter(review => {
-        // console.log(review.spotId)
-        // console.log(spot.id)
+
         if (review?.spotId === spot?.id) {
 
             return review;
@@ -37,8 +36,6 @@ const SpotDetail = ({spots}) => {
             return false;
         }
     })
-
-    console.log(pageReviews)
 
     useEffect(() => {
         dispatch(getSpots())
@@ -53,8 +50,6 @@ const SpotDetail = ({spots}) => {
         await dispatch(deleteSpot(spotId))
         history.push('/')
     }
-
-    // const sessionUser = useSelector(state => state.session.user);
 
   let sessionLinks;
   if (user) {
@@ -92,17 +87,21 @@ if (spotUser) {
     return (
 
         <div className='spotDetailContainer'>
-            <h1>{spot.name}</h1>
+            <h2>{spot.name}</h2>
             {spotEdits}
-            {/* <SpotEditFormModal />
-            <button>Delete Estate</button> */}
+
             <div className='top-detail'>
             <ul className='sub-top-detail'>
+                <div className='left-top'>
                 <li>{spot.address}</li>
                 <li>{spot.city}, {spot.state}, {spot.country}</li>
-                <li>Lat:{spot.lat} Lng:{spot.lng}</li>
+                </div>
+                <div className='right-top'>
+                <li>Latitude:{spot.lat}</li>
+                <li>Longitude:{spot.lng}</li>
+                </div>
             </ul>
-            <div>
+            <div className='detailImageContainer' >
                 <img alt='Replace with a valid .jpg' className='detailImage1' src={spot.url1} />
                 <img alt='Replace with a valid .jpg' className='detailImage2' src={spot.url2} />
                 <img alt='Replace with a valid .jpg' className='detailImage3' src={spot.url3} />
@@ -120,9 +119,6 @@ if (spotUser) {
             </div>
 
         </div>
-
-
-
     )
 } else {
     return (<p></p>)

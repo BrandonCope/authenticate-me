@@ -1,10 +1,19 @@
+@media screen and (min-width: 400px) {
 .deleteSpotButton {
     background-color: goldenrod;
     margin: 10px;
     border-radius: 30px;
+    font-size: medium;
+    font-weight: bold;
 }
 
-.detailImage1 {
+.deleteSpotButton:hover {
+    background-color: black;
+    color: antiquewhite;
+    border-color: goldenrod;
+}
+
+/* .detailImage1 {
     width: 500px;
     height: 400px;
     border-top-left-radius: 10px ;
@@ -19,13 +28,50 @@
     height: 400px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+} */
+
+@media screen and (min-width: 1540px) {
+    .detailImage1 {
+        width: 500px;
+        height: 400px;
+        border-top-left-radius: 10px ;
+        border-bottom-left-radius: 10px ;
+    }
+    .detailImage2 {
+        width: 500px;
+        height: 400px;
+    }
+    .detailImage3 {
+        width: 500px;
+        height: 400px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    .left-top {
+        display: flex;
+        /* flex-direction: row; */
+        justify-content: space-between;
+        width: 500px;
+        align-items: flex-end;
+    }
+    .right-top {
+        display: flex;
+        /* flex-direction: row; */
+        justify-content: space-between;
+        width: 500px;
+        align-items: flex-end;
+    }
+
 }
 
 .sub-top-detail{
     display: flex;
-    justify-content: space-between;
-    width: 700px;
+    justify-content: space-around;
+    /* width: 700px; */
 }
+
+
 
 .spotDetailContainer {
     display: flex;
@@ -33,4 +79,99 @@
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
+}
+
+}
+
+@media screen and (max-width: 400px) {
+    .deleteSpotButton {
+        background-color: goldenrod;
+        margin: 10px;
+        border-radius: 30px;
+        font-size: medium;
+        font-weight: bold;
+    }
+
+    .deleteSpotButton:hover {
+        background-color: black;
+        color: antiquewhite;
+        border-color: goldenrod;
+    }
+
+    /* .detailImage1 {
+        width: 500px;
+        height: 400px;
+        border-top-left-radius: 10px ;
+        border-bottom-left-radius: 10px ;
+    }
+    .detailImage2 {
+        width: 500px;
+        height: 400px;
+    }
+    .detailImage3 {
+        width: 500px;
+        height: 400px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    } */
+
+
+        .detailImage1 {
+            width: 300px;
+            height: 300px;
+            border-top-left-radius: 10px ;
+            border-bottom-left-radius: none ;
+        }
+        .detailImage2 {
+            width: 300px;
+            height: 300px;
+        }
+        .detailImage3 {
+            width: 300px;
+            height: 300px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .left-top {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            /* width: 500px; */
+            align-items: flex-start;
+            box-sizing: border-box;
+            margin-left: 5px;
+        }
+        .right-top {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
+            margin-right: 97px;
+            /* width: 500px; */
+            align-items: flex-start;
+        }
+
+
+
+    .sub-top-detail{
+        box-sizing: border-box;
+        /* margin-left: 100px; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* justify-content: space-around; */
+        /* width: 700px; */
+    }
+
+
+
+    .spotDetailContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+    }
 }

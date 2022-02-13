@@ -1,18 +1,90 @@
 body {
     background-color: black;
+    font-style: strong;
     /* color: white; */
+    font-weight: bold;
+}
+
+/* a:link {
+    color: white;
+} */
+
+.hostButton > a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* .hostButton > a:hover {
+    color: black;
+} */
+
+.hostButton {
+    background-color: black;
+    color:antiquewhite;
+    /* margin: 10px; */
+    border: solid;
+    /* width: 500px; */
+    border-radius: 30px;
+    padding-right: 20px;
+    padding-left: 20px;
+    font-size:medium;
+    font-weight: bold;
+    width: 140px;
+}
+
+.hostButton:hover {
+    background-color: antiquewhite;
+    color: black;
+}
+
+.profileButton {
+    /* display: flex; */
+    background-color: black;
+    color: antiquewhite;
+    font-size: medium;
+    /* width: 20px; */
+    padding: 15px;
+    border-radius: 10px;
+    border: solid;
+    position: fixed
+    top50, right100,;
+    border-color: antiquewhite;
+    /* padding-top: 50px; */
+    /* justify-self: flex-end; */
+    box-shadow: 10px 5px 5px black
+}
+
+.profileButton:hover {
+    box-shadow: 10px 5px 5px red;
 }
 
 .pageTitle {
     font-family: 'Dancing Script', cursive;
     font-size: 75px;
+    box-sizing: border-box;
+    /* display: flex; */
+    /* right: 50px; */
+    /* left: 450px; */
+    /* align-self: center; */
+    justify-self: center;
+    /* width: 500px; */
+    /* margin-left: 10px;
+    margin-left: 30px; */
+    padding-left: 0px;
+    /* position: fixed; */
+}
+
+.profileContainer > button {
+    width: 50px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .navBar {
     display: flex;
     position: sticky;
     top: 0;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     /* align-items: center; */
     /* margin-top: 200px; */
@@ -22,24 +94,36 @@ body {
     padding: 30px;
     border-radius: 10px;
     margin-top: 0;
-    height: 50px;
+    height: 60px;
     opacity: 0.8;
     /* color: white; */
 
 }
+.profileItem {
+    padding-bottom: 5px;
+}
 
 .sessionLinks {
     display: flex;
-    padding: 10px;
-    width: 150px;
+    /* padding: 0px; */
+    /* width: 150px; */
+    /* margin-top: 20px; */
+    /* margin-bottom: 20px; */
+    flex-direction: column;
     justify-content: space-around;
-
+    font-size: medium ;
+    height: 20px;
+    /* margin: 0px; */
 }
 
 .logo {
     width: 75px;
     border-radius: 10px;
     box-shadow: 10px 5px 5px black ;
+}
+
+.logo:hover {
+    box-shadow: 10px 5px 5px red;
 }
 /* .logo > a {
     display: flex;
@@ -48,22 +132,118 @@ body {
 
 } */
 
-.loggedOutUserNav {
+.profileContainer {
     display: flex;
-    justify-content: space-between;
-    border: black solid;
-    border-radius: 5px;
-    /* color: goldenrod; */
-    background-color: whitesmoke;
+    justify-content: flex-end;
+    flex-direction: column;
 }
 
+.loggedOutUserNav {
+    height: 45px;
+    width: 50px;
+    /* margin-right: 50px; */
+}
+
+.loggedInUserNav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    /* color: goldenrod; */
+    /* background-color: whitesmoke; */
+    font-size: medium;
+    background-color: goldenrod;
+    height: 30px;
+}
+/*
 h1 {
     display: flex;
     justify-content: center;
-}
+} */
 
 .profile-dropdown{
+    /* margin-top: 30px; */
+    border: black solid;
+    border-radius: 10px;
+    height: 100px;
+    background-color: goldenrod;
+    padding: 30px;
+    width: 140px;
+    /* padding-bottom: 5px; */
     display: flex;
     flex-direction: column;
-    height: 100px;
+    align-self: flex-end;
+    align-items: center;
+    /* align-items: stretch; */
+    /* justify-content: flex-end; */
+    /* align-items: flex-end; */
+    list-style: none;
+
+
+
+    /* display: flex; */
+    /* height: 100px; */
+}
+
+.logoutButton {
+    background-color: black;
+    color:antiquewhite;
+    /* margin: 10px; */
+    border: solid;
+    width: 140px;
+    border-radius: 30px;
+    padding-right: 20px;
+    padding-left: 20px;
+    font-size:medium;
+    font-weight: bold;
+}
+
+.logoutButton:hover {
+      background-color: antiquewhite;
+    color: black;
+}
+
+@media screen and (max-width: 1540px) {
+    body {
+        /* background-color: hotpink; */
+    }
+
+    .detailImageContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* border-top-right-radius: 10px; */
+    }
+
+    .detailImage1 {
+        width: 500px;
+        height: 400px;
+        border-top-left-radius: 10px ;
+        border-top-right-radius: 10px ;
+        /* border-bottom-left-/: 0px; */
+    }
+
+    .detailImage2 {
+        width: 500px;
+        height: 400px;
+    }
+
+    .detailImage3 {
+        width: 500px;
+        height: 400px;
+        border-top-right-radius: none ;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+
+    }
+
+    .sub-top-detail{
+        display: flex;
+        flex-direction: row;
+        width: 600px;
+        justify-content: space-between;
+        /* width: 700px; */
+    }
+
+
 }

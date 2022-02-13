@@ -22,6 +22,7 @@
     padding-right: 20px;
     padding-left: 20px;
     font-size:medium;
+    font-weight: bold;
 }
 
 .createReviewButton:hover {
@@ -45,10 +46,11 @@
     border-radius: 30px;
     font-size: medium;
     font-family:Arial, Helvetica, sans-serif;
+    font-weight: bold;
 }
 
 .reviewModalButton:hover {
     background-color: black;
-    border-color: antiquewhite;
+    border-color: goldenrod;
     color: antiquewhite;
 }

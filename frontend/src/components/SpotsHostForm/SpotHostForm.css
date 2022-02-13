@@ -5,7 +5,7 @@
     border: 5px solid;
     border-radius: 10px;
     width: 350px;
-    height: 350px;
+    height: 550px;
     padding: 50px;
     /* padding-top: 10px; */
     color: black;
@@ -16,6 +16,11 @@
     display: flex;
     justify-content: center;
     color: white;
+}
+
+.hostSpotInput {
+    width: 330px;
+    margin-bottom: 10px;
 }
 
 /* .inputFields {

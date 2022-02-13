@@ -73,6 +73,7 @@ const SpotHostForm = () => {
             <h2>Host Your Estate</h2>
             <label>
                     <input
+                    className='hostSpotInput'
                     placeholder='Image 1 add your url'
                     type="url"
                     value={url1}
@@ -83,6 +84,7 @@ const SpotHostForm = () => {
                 </label>
                 <label>
                     <input
+                    className='hostSpotInput'
                     placeholder='Image 2 add your url'
                     type="url"
                     value={url2}
@@ -93,6 +95,7 @@ const SpotHostForm = () => {
                 </label>
                 <label>
                     <input
+                    className='hostSpotInput'
                     placeholder='Image 3 add your url'
                     type="url"
                     value={url3}
@@ -104,6 +107,7 @@ const SpotHostForm = () => {
 
                 <label>
                     <input
+                    className='hostSpotInput'
                     placeholder='Address'
                     type="text"
                     value={address}
@@ -113,6 +117,7 @@ const SpotHostForm = () => {
                 </label>
                 <label>
                     <input
+                    className='hostSpotInput'
                     placeholder='City'
                     type="text"
                     value={city}
@@ -122,6 +127,7 @@ const SpotHostForm = () => {
                 </label>
                 <label>
                     <input
+                    className='hostSpotInput'
                     placeholder='State'
                     type="text"
                     value={state}
@@ -131,6 +137,7 @@ const SpotHostForm = () => {
                 </label>
                 <label>
                     <input
+                    className='hostSpotInput'
                     placeholder='Country'
                     type="text"
                     value={country}
@@ -140,6 +147,7 @@ const SpotHostForm = () => {
                 </label>
                 <label>
                     <input
+                    className='hostSpotInput'
                     placeholder='Latitude'
                     type="number"
                     value={lat}
@@ -149,6 +157,7 @@ const SpotHostForm = () => {
                 </label>
                 <label>
                     <input
+                    className='hostSpotInput'
                     placeholder='Longitude'
                     type="number"
                     value={lng}
@@ -158,6 +167,7 @@ const SpotHostForm = () => {
                 </label>
                 <label>
                     <input
+                    className='hostSpotInput'
                     placeholder='Estate Name'
                     type="text"
                     value={name}
@@ -167,7 +177,8 @@ const SpotHostForm = () => {
                 </label>
                 <label>
                     <input
-                    placeholder='Price'
+                    className='hostSpotInput'
+                    placeholder='Price per night'
                     type="number"
                     value={price}
                     onChange={(e) => setPrice(Number(e.target.value))}

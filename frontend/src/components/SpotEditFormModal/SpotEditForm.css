@@ -1,3 +1,4 @@
+@media screen and (min-width: 400px) {
 .editForm {
     display: flex;
     flex-direction: column;
@@ -5,7 +6,7 @@
     border: 5px solid;
     border-radius: 10px;
     width: 350px;
-    height: 350px;
+    height: 420px;
     padding: 50px;
     padding-top: 10px;
     color: black;
@@ -16,19 +17,106 @@
 
 .editSubmit {
     background-color: black;
-    margin: 10px;
+    color:antiquewhite;
+    /* margin: 10px; */
+    border: solid;
+    width: 340px;
     border-radius: 30px;
-    color: white;
-    /* padding-right: 50px;
-    padding-left: 50px; */
+    padding-right: 20px;
+    padding-left: 20px;
+    font-size:medium;
+    font-weight: bold;
+}
+
+.editSubmit:hover {
+    background-color: antiquewhite;
+    color: black;
+    border-color: black;
 }
 
 .editDetailButton {
     background-color: goldenrod;
     margin: 10px;
     border-radius: 30px;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.editDetailButton:hover {
+    background-color: black;
+    border-color: goldenrod;
+    color: antiquewhite;
 }
 
 .editFormContainer {
     color: white;
 }
+
+.editSpotInput {
+width: 330px;
+margin-bottom: 10px;
+}
+
+}
+
+
+@media screen and (max-width: 400px) {
+    .editForm {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 5px solid;
+        border-radius: 10px;
+        width: 350px;
+        height: 420px;
+        padding: 50px;
+        padding-top: 10px;
+        color: black;
+
+        background-color: goldenrod;
+
+    }
+
+    .editSubmit {
+        background-color: black;
+        color:antiquewhite;
+        /* margin: 10px; */
+        border: solid;
+        width: 340px;
+        border-radius: 30px;
+        padding-right: 20px;
+        padding-left: 20px;
+        font-size:medium;
+        font-weight: bold;
+    }
+
+    .editSubmit:hover {
+        background-color: antiquewhite;
+        color: black;
+        border-color: black;
+    }
+
+    .editDetailButton {
+        background-color: goldenrod;
+        margin: 10px;
+        border-radius: 30px;
+        font-size: medium;
+        font-weight: bold;
+    }
+
+    .editDetailButton:hover {
+        background-color: black;
+        border-color: goldenrod;
+        color: antiquewhite;
+    }
+
+    .editFormContainer {
+        color: white;
+    }
+
+    .editSpotInput {
+    width: 330px;
+    margin-bottom: 10px;
+    }
+
+    }

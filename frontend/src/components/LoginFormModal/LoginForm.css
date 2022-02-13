@@ -8,31 +8,26 @@
     height: 200px;
     padding: 50px;
     background-color: goldenrod;
-    /* color: white; */
 }
 
-/* .inputFields {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    border: 1px solid;
-    border-radius: 30px;
-    padding: 10px;
-    background-color: beige;
-    /* padding-top: 100px; */
-/* } */
+
 
 .loginSubmit {
-    display: flex;
-    justify-content: center;
     background-color: black;
-    color: white;
-    /* margin: 0px; */
-    width: 200px;
-    /* margin-left: 75px; */
+    color:antiquewhite;
+    /* margin: 10px; */
+    border: solid;
+    width: 140px;
     border-radius: 30px;
-    /* padding-right: 30px;
-    padding-left: 30px; */
+    padding-right: 20px;
+    padding-left: 20px;
+    font-size:medium;
+    font-weight: bold;
+}
+
+.loginSubmit:hover {
+    background-color: antiquewhite;
+    color: black;
 }
 
 .loginModalButton {
@@ -40,8 +35,12 @@
     color:white;
     margin: 10px;
     border: solid;
-    /* width: 500px; */
     border-radius: 30px;
     padding-right: 20px;
     padding-left: 20px;
+}
+
+.loginModalButton:hover {
+    background-color: antiquewhite;
+    color: black;
 }
