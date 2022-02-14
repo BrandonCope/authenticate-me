@@ -37,20 +37,20 @@ module.exports = {
       name: "Biltmore Estate",
       price: 5000
      },
-    //  {
-    //   userId: 2,
-    //   url1: "https://www.superyachtfan.com/wp-content/uploads/2020/09/yacht-Musashi-88m-Feadship-5.jpg",
-    //   url2: "http://www.hautetime.com/wp-content/uploads/2013/08/Upper-deck-Lounge.jpg",
-    //   url3: "https://www.yachtinglifestyle365.com/wp-content/uploads/2014/02/Musashi-Guest-Cabin.jpg",
-    //   address: "Kewalo Basin Harbor",
-    //   city: "Kewalo",
-    //   state: "Hawaii",
-    //   country: "United States",
-    //   lat: 21.292123,
-    //   lng:  -157.858112,
-    //   name: "Musashi",
-    //   price: 3000
-    //  },
+     {
+      userId: 2,
+      url1: "https://www.superyachtfan.com/wp-content/uploads/2020/09/yacht-Musashi-88m-Feadship-5.jpg",
+      url2: "http://www.hautetime.com/wp-content/uploads/2013/08/Upper-deck-Lounge.jpg",
+      url3: "https://www.yachtinglifestyle365.com/wp-content/uploads/2014/02/Musashi-Guest-Cabin.jpg",
+      address: "Kewalo Basin Harbor",
+      city: "Kewalo",
+      state: "Hawaii",
+      country: "United States",
+      lat: 21.292123,
+      lng:  -157.858112,
+      name: "Musashi",
+      price: 3000
+     },
    ], {});
   },
 
