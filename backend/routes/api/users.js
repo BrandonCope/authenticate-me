@@ -12,11 +12,27 @@ const validateSignup = [
     check('email')
       .exists({ checkFalsy: true })
       .isEmail()
-      .withMessage('Please provide a valid email.'),
+      .withMessage('Please provide a valid email.')
+      .custom((value) => {
+        return User.findOne({ where: { email:value } })
+          .then((user) => {
+            if (user) {
+              return Promise.reject('The Provide Email Address is already in use.')
+            }
+          })
+      }),
     check('username')
       .exists({ checkFalsy: true })
       .isLength({ min: 4 })
-      .withMessage('Please provide a username with at least 4 characters.'),
+      .withMessage('Please provide a username with at least 4 characters.')
+      .custom((value) => {
+        return User.findOne({ where: { username:value } })
+          .then((user) => {
+            if (user) {
+              return Promise.reject('The Provide Username is already in use.')
+            }
+          })
+      }),
     check('password')
       .exists({ checkFalsy: true })
       .isLength({ min: 6 })
@@ -39,6 +55,8 @@ router.post(
       });
     })
   );
+
+
 
 
 module.exports = router;
