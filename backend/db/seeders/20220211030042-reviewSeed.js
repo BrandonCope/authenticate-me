@@ -10,7 +10,7 @@ module.exports = {
       */
    return queryInterface.bulkInsert('Reviews', [
      {
-       userId:1,
+       userId:3,
        spotId:1,
        username:"Demo-User",
        review:"Loved the fountain.",

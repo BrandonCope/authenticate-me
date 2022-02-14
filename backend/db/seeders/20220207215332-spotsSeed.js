@@ -10,7 +10,7 @@ module.exports = {
       */
    return queryInterface.bulkInsert('Spots', [
      {
-       userId: 1,
+       userId: 2,
        url1: "https://s.wsj.net/public/resources/images/B3-BX392_PEREIR_M_20180928181344.jpg",
        url2: "https://i.insider.com/5bbfa7f38053835ba218cae8?width=1136&format=jpeg",
        url3: "https://s.wsj.net/public/resources/images/B3-BX393_PEREIR_M_20180928181344.jpg",
@@ -36,6 +36,20 @@ module.exports = {
       lng:  -82.551134,
       name: "Biltmore Estate",
       price: 5000
+     },
+     {
+      userId: 2,
+      url1: "https://www.superyachtfan.com/wp-content/uploads/2020/09/yacht-Musashi-88m-Feadship-5.jpg",
+      url2: "http://www.hautetime.com/wp-content/uploads/2013/08/Upper-deck-Lounge.jpg",
+      url3: "https://www.yachtinglifestyle365.com/wp-content/uploads/2014/02/Musashi-Guest-Cabin.jpg",
+      address: "1 Lodge St",
+      city: "Kewalo Basin Harbor",
+      state: "Hawaii",
+      country: "United States",
+      lat: 21.292123,
+      lng:  -157.858112,
+      name: "Musashi",
+      price: 3000
      }
    ], {});
   },
