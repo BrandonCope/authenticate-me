@@ -11,11 +11,6 @@ export const useEditModal = () => useContext(EditModalContext)
 
 function SpotEditFormModal() {
   const [showModal, setShowModal] = useState(false);
-  // const dispatch = useDispatch();
-
-//   useEffect(() => {
-//     dispatch(getSpots())
-// },[dispatch])
 
   return (
     <EditModalContext.Provider

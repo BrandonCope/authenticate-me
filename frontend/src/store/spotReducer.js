@@ -76,8 +76,7 @@ export const editSpot = (spotId, payload) => async dispatch => {
 export const deleteSpot = (spotId) => async dispatch => {
     const response = await csrfFetch(`/api/spots/${spotId}`, {
         method: 'DELETE',
-        headers: {'Content-Type': 'application/json'},
-    })
+      })
     if(response.ok) {
         dispatch(removeSpots(spotId))
     }

@@ -7,11 +7,9 @@ import reviewReducer from "./reviewReducer";
 // import imageReducer from "./imageReducer";
 
 const rootReducer = combineReducers({
-  // add reducer functions here
   session: sessionReducer,
   spotState: spotReducer,
   reviewState: reviewReducer
-  // imageState: imageReducer
 });
 
 let enhancer;

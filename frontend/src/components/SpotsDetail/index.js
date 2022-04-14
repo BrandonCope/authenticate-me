@@ -37,10 +37,10 @@ const SpotDetail = ({spots}) => {
         }
     })
 
-    useEffect(() => {
-        dispatch(getSpots())
-        dispatch(getReviews)
-    },[dispatch])
+    // useEffect(() => {
+    //     // dispatch(getSpots())
+    //     // dispatch(getReviews())
+    // },[dispatch])
 
     const handleClick = async () => {
         pageReviews.forEach(review => {
