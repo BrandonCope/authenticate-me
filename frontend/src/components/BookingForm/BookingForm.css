@@ -1,0 +1,87 @@
+.booking-date-picker {
+    background-color: goldenrod;
+    border: solid;
+    color: black;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 10px 5px 5px antiquewhite;
+}
+
+.booking-label {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+    margin-right: 5px;
+}
+
+.booking-button {
+    margin-top: 5px;
+}
+
+.DateRangePickerInput {
+    background-color: goldenrod;
+    border: 0;
+    /* color: white; */
+    font-weight: bolder;
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-body-container {
+    display: flex;
+}
+
+.DateInput_input {
+    background-color: black;
+    color: white;
+    display: flex;
+    cursor: pointer;
+}
+
+.DateInput_input:hover {
+    /* background-color: white;
+    color: black; */
+}
+
+
+/* // NOTE: the order of these styles DO matter */
+
+/* // Will edit everything selected including everything between a range of dates */
+.CalendarDay__selected_span {
+    /* background: #82e0aa; */
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+}
+
+.CalendarDay__selected_span:hover {
+    border: 1px solid white;
+    background-color: goldenrod;
+}
+
+/* // Will edit selected date or the endpoints of a range of dates */
+.CalendarDay__selected {
+    background: goldenrod;
+    border: 1px solid white;
+    color: white;
+}
+
+/* // Will edit when hovered over. _span style also has this property */
+.CalendarDay__selected:hover {
+    background-color: orange;
+    color: white;
+    border: 1px solid white;
+}
+
+/* // Will edit when the second date (end date) in a range of dates
+// is not yet selected. Edits the dates between your mouse and said date */
+.CalendarDay__hovered_span:hover,
+.CalendarDay__hovered_span {
+  background: brown;
+}
+
+
+.booking-error {
+    width: 300px;
+    margin-bottom: 10px;
+}

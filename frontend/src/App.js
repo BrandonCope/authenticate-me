@@ -15,6 +15,9 @@ import SpotHostForm from "./components/SpotsHostForm";
 import './app.css'
 import { getBookings } from "./store/bookingReducer";
 
+import ProfileBookings from "./components/ProfileBookings";
+import Profile from "./components/Profile";
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -47,6 +50,14 @@ function App() {
 
           <Route path={'/spots/:spotId'}>
             <SpotDetail spots={spots} />
+          </Route>
+
+          <Route path={'/profiles/:id'}>
+            <Profile />
+          </Route>
+
+          <Route path={'/profiles/:id/reservations'}>
+            <ProfileBookings />
           </Route>
 
 

@@ -1,14 +1,23 @@
-import React, { useState } from "react";
-import moment from "moment";
-import { DayPickerRangeController, SingleDatePicker, DateRangePicker } from "react-dates";
+import React, { useEffect, useState } from "react";
 import 'react-dates/lib/css/_datepicker.css'
 import { useDispatch } from "react-redux";
 import { createBooking } from "../../store/bookingReducer";
 
+import moment from "moment";
+import 'react-dates/initialize';
+import 'react-dates/lib/css/_datepicker.css';
+import './BookingForm.css'
+import { DateRangePicker } from "react-dates";
+
 const Booking = ({spot, user}) => {
-    const [startDate, setStartDate] = useState()
-    const [endDate, setEndDate] = useState()
-    const [focusedInput, setFocusedInput] = useState()
+    const tomorrow = moment().add('days', 1)
+    const defaultEnd = moment(tomorrow).add('days', 2)
+
+    const [startDate, setStartDate] = useState(tomorrow)
+    const [endDate, setEndDate] = useState(defaultEnd)
+    const [focusedInput, setFocusedInput] = useState(null)
+    const [errors, setErrors] = useState([]);
+
     const dispatch = useDispatch()
 
     const rangeDate = ({ startDate, endDate }) => {
@@ -16,43 +25,71 @@ const Booking = ({spot, user}) => {
         setEndDate(moment(endDate))
     }
 
+    useEffect(() => {
+        const validate = []
+        console.log(startDate)
+        console.log(endDate._d)
+        if (startDate._d === "Invalid Date") validate.push('Please select a start date.')
+        if (endDate._d === "Invalid Date") validate.push('Please select an end date.')
+
+        setErrors(validate)
+
+    }, [startDate, endDate])
+
+
     const rangeFocus = (focusedInput) => {
         setFocusedInput(focusedInput)
     }
 
-    const reset = () => {
-        setStartDate("");
-        setEndDate("");
-    }
-
     const handleSubmit = (e) => {
+        e.preventDefault();
+        setErrors([]);
+        if (errors.length === 0) {
+            const buildBooking = {
+                spotId: spot?.id,
+                userId: user?.id,
+                startDate: startDate.format('YYYY-MM-DD'),
+                endDate: endDate.format('YYYY-MM-DD')
+            }
+            window.prompt("Booking Succesful! :)")
+            return dispatch(createBooking(buildBooking)).catch(
+                async (res) => {
+                     const data = await res.json();
+                     if (data && data.errors) {
+                         setErrors(data.errors)
+                        } else {
+                        }
 
-        const buildBooking = {
-            spotId: spot?.id,
-            userId: user?.id,
-            startDate,
-            endDate
+                }
+            )
         }
-        dispatch(createBooking(buildBooking))
-        reset()
     }
 
     return (
         <form onSubmit={handleSubmit}>
-            <div>
+            <div className="booking-date-picker">
+             {errors.length > 0 && errors.map((error, idx) => (
+          <li className="booking-error" key={idx}>{error}</li>
+        ))}
+                <div className="booking-body-container">
+                <div className="booking-label">
+                    <h3>Start Date:</h3>
+                    <h3>End Date:</h3>
+                </div>
             <DateRangePicker
                 startDate={startDate} // momentPropTypes.momentObj or null,
-                startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
+                startDateId="qwerasdfzxcv" // PropTypes.string.isRequired,
                 endDate={endDate} // momentPropTypes.momentObj or null,
-                endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
+                endDateId="xzcvasdfqwer" // PropTypes.string.isRequired,
                 onDatesChange={rangeDate} // PropTypes.func.isRequired,
                 focusedInput={focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
                 onFocusChange={rangeFocus} // PropTypes.func.isRequired,
                 />
             </div>
-            <div>
-                <button>Book</button>
+            <div className="booking-button">
+                <button className="createReviewButton">Book</button>
             </div>
+                </div>
         </form>
     )
 }

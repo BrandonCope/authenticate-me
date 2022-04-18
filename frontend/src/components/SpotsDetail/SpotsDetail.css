@@ -13,6 +13,18 @@
     border-color: goldenrod;
 }
 
+.booking-container {
+    margin-left: 15px;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+}
+
+.booking-container > div {
+    margin-top: 10px;
+}
+
 /* .detailImage1 {
     width: 500px;
     height: 400px;

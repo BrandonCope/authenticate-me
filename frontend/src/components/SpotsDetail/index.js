@@ -115,10 +115,12 @@ if (spotUser) {
                     {sessionLinks}
                     <ReviewList spot={spot} />
                 </div>
-                <div>
-                    <h3>Book your stay.</h3>
+                <div className='booking-container'>
+                    <h3>Book your stay:</h3>
                     <p>${spot.price} / night</p>
+                    <div>
                     <Booking spot={spot} user={user} />
+                    </div>
                 </div>
            </div>
 
