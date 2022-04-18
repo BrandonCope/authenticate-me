@@ -81,6 +81,10 @@
     box-sizing: border-box;
 }
 
+.spot-detail-body {
+    display: flex;
+}
+
 }
 
 @media screen and (max-width: 400px) {

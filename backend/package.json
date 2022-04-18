@@ -32,6 +32,7 @@
     "express-validator": "^6.14.0",
     "helmet": "^5.0.2",
     "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.3",
     "morgan": "^1.10.0",
     "mysql2": "^2.3.3",
     "per-env": "^1.0.2",

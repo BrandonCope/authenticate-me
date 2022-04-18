@@ -7,6 +7,7 @@ import ReviewList from '../ReviewList';
 import { useEffect } from 'react';
 import ReviewFormModal from '../ReviewFormModal'
 import { deleteReview, getReviews } from '../../store/reviewReducer';
+import Booking from '../BookingForm';
 
 
 
@@ -108,15 +109,18 @@ if (spotUser) {
 
             </div>
             </div>
-            <div className='booking-Container'>
-                <p>${spot.price} / night</p>
-                <form></form>
-            </div>
-            <div className='review-Container'>
-                <h2>Previous Guest Reviews:</h2>
-                {sessionLinks}
-                <ReviewList spot={spot} />
-            </div>
+           <div className='spot-detail-body'>
+                <div className='review-Container'>
+                    <h2>Previous Guest Reviews:</h2>
+                    {sessionLinks}
+                    <ReviewList spot={spot} />
+                </div>
+                <div>
+                    <h3>Book your stay.</h3>
+                    <p>${spot.price} / night</p>
+                    <Booking spot={spot} user={user} />
+                </div>
+           </div>
 
         </div>
     )

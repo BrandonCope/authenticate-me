@@ -22,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/BrandonCope/heir-b-and-b/issues"
   },
-  "homepage": "https://github.com/BrandonCope/heir-b-and-b#readme"
+  "homepage": "https://github.com/BrandonCope/heir-b-and-b#readme",
+  "dependencies": {
+    "moment": "^2.29.2",
+    "react-dates": "^21.8.0"
+  }
 }

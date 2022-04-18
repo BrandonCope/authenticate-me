@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import 'react-dates/initialize';
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import { restoreSpot } from "./store/spotReducer";
@@ -12,6 +13,7 @@ import SpotHostForm from "./components/SpotsHostForm";
 // import * as spotActions from "./store/spotReducer"
 // import * as reviewActions from "./store/reviewReducer"
 import './app.css'
+import { getBookings } from "./store/bookingReducer";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,6 +27,7 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
     dispatch(restoreSpot())
     dispatch(restoreReview())
+    dispatch(getBookings())
   }, [dispatch]);
 
   return (
