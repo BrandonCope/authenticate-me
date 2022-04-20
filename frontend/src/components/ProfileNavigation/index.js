@@ -10,7 +10,7 @@ const ProfileNav = ({user}) => {
             <div>
                 <nav className="profile-nav-links">
                     <NavLink to={`/profiles/${id}/reservations`}>Reservations</NavLink>
-                    <NavLink to={`/profiles/${id}/listings`}>My Listings</NavLink>
+                    <NavLink to={`/profiles/${id}/listings`}>My Estates</NavLink>
                 </nav>
             </div>
         </div>

@@ -1,39 +1,38 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { createBooking } from "../../store/bookingReducer";
-import { useHistory } from 'react-router-dom'
+import { editBooking, getBookings } from "../../store/bookingReducer";
 
 import moment from "moment";
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
-import './BookingForm.css'
 import { DateRangePicker } from "react-dates";
+import { useEditBookingModal } from ".";
+import { useEditDeleteModal } from "../EditDeleteModal";
 
-const Booking = ({spot, user}) => {
-    const tomorrow = moment().add(1,'days')
-    const defaultEnd = moment(tomorrow).add(2, 'days')
-
-    const [startDate, setStartDate] = useState(tomorrow)
-    const [endDate, setEndDate] = useState(defaultEnd)
+const EditBooking = ({booking}) => {
+    const {setShowModal} = useEditBookingModal()
+    const {setShowEditDeleteModal} = useEditDeleteModal()
+    const [startDate, setStartDate] = useState(moment(booking.startDate).utcOffset(19))
+    const [endDate, setEndDate] = useState(moment(booking.endDate).utcOffset(19))
     const [focusedInput, setFocusedInput] = useState(null)
     const [errors, setErrors] = useState([]);
 
-    const history = useHistory()
     const dispatch = useDispatch()
 
     const rangeDate = ({ startDate, endDate }) => {
         setStartDate(moment(startDate));
         setEndDate(moment(endDate))
+
     }
 
     useEffect(() => {
         const validate = []
         if (startDate._d === "Invalid Date") validate.push('Please select a start date.')
         if (endDate._d === "Invalid Date") validate.push('Please select an end date.')
-
+        dispatch(getBookings())
         setErrors(validate)
 
-    }, [startDate, endDate])
+    }, [dispatch, startDate, endDate])
 
 
     const rangeFocus = (focusedInput) => {
@@ -44,26 +43,25 @@ const Booking = ({spot, user}) => {
         e.preventDefault();
         setErrors([]);
         if (errors.length === 0) {
-            const buildBooking = {
-                spotId: spot?.id,
-                userId: user?.id,
-                startDate: startDate,
-                endDate: endDate
+            const bookingId = booking?.id
+            const payload = {
+                startDate: moment(startDate),
+                endDate: moment(endDate)
             }
-            return dispatch(createBooking(buildBooking))
+
+            return dispatch(editBooking(booking?.id, payload))
                 .then(() => {
-                    window.prompt("Booking Succesful! :)")
-                    history.push(`/profiles/${user?.id}/reservations`)
-
+                    dispatch(getBookings())
+                    setShowModal(false)
+                    setShowEditDeleteModal(false)
                 }).catch(
-                async (res) => {
-                    const data = await res.json();
-                    if (data && data.errors) {
-                        setErrors(data.errors)
-                    }})
-
-            }
+                    async (res) =>{
+                        const data = await res.json();
+                        if (data && data.errors) {
+                            setErrors(data.errors)
+                        }})
         }
+    }
 
     return (
         <form onSubmit={handleSubmit}>
@@ -87,7 +85,7 @@ const Booking = ({spot, user}) => {
                 />
             </div>
             <div className="booking-button">
-                <button className="createReviewButton">Book</button>
+                <button className="createReviewButton">Submit Changes</button>
             </div>
                 </div>
         </form>
@@ -95,4 +93,4 @@ const Booking = ({spot, user}) => {
 }
 
 
-export default Booking;
+export default EditBooking;

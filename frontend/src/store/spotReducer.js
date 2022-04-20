@@ -33,13 +33,12 @@ export const getSpots = () => async dispatch => {
         dispatch(loadSpots(spots))
         return spots
     }
-    // return response;
+    return response;
 }
 
 export const restoreSpot = () => async (dispatch) => {
     const response = await csrfFetch('/api/spots');
     const spots = await response.json();
-    // console.log(spots)
     dispatch(loadSpots(spots));
     return response;
 
@@ -81,19 +80,6 @@ export const deleteSpot = (spotId) => async dispatch => {
         dispatch(removeSpots(spotId))
     }
 }
-
-// export const getImage = () => async dispatch => {
-//     const response = await fetch(`/api/images`)
-//     console.log(response)
-//     if (response.ok) {
-//         const images = await response.json()
-//         // console.log(images)
-//         dispatch(loadImages(images))
-//         return images;
-//     }
-
-// }
-
 
 
 

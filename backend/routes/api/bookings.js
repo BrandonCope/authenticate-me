@@ -4,18 +4,19 @@ const { restoreUser, requireAuth } = require('../../utils/auth')
 const moment = require('moment');
 moment().format();
 
-const { Booking } = require('../../db/models')
+const { Booking, Spot } = require('../../db/models')
 const bookingValidations = require('../../utils/validations/bookings');
 
 
-
 router.get('/', restoreUser, asyncHandler(async(req,res) => {
-    const bookings = await Booking.findAll();
+    const bookings = await Booking.findAll({
+        include: Spot,
+    });
     return res.json(bookings)
 }))
 
 
-router.post('/', restoreUser, bookingValidations.validateCreate, asyncHandler(async(req,res, next) => {
+router.post('/', bookingValidations.validateCreate, asyncHandler(async(req,res, next) => {
     const { spotId, startDate, endDate } = req.body
 
     const bookings = await Booking.findAll({
@@ -28,7 +29,7 @@ router.post('/', restoreUser, bookingValidations.validateCreate, asyncHandler(as
         )
 
     if (conflict.length > 0) {
-        console.log("CONFLICT!!!!!!",moment(conflict[0].startDate).format("MMM Do YY"))
+
         const start = moment(conflict[0].startDate).format("MMM Do YY");
         const end = moment(conflict[0].endDate).format("MMM Do YY")
         const err = new Error('Booking failed');
@@ -38,6 +39,7 @@ router.post('/', restoreUser, bookingValidations.validateCreate, asyncHandler(as
         return next(err);
         // res.json({"errors": "Sorry, we are booked during your selected dates. Please, select another date."})
     }
+
         const newBooking = await Booking.create(req.body)
         return res.json(newBooking)
 
@@ -47,7 +49,9 @@ router.put('/:id(\\d+)', restoreUser, bookingValidations.validateUpdate, asyncHa
     const { startDate, endDate } = req.body
     const {id} = req.params
 
-    const editBooking = await Booking.findByPk(id)
+    const editBooking = await Booking.findByPk(id, {
+        include: Spot,
+    })
     const bookings = await Booking.findAll({
         where: { spotId: editBooking.spotId }
     });
@@ -60,11 +64,13 @@ router.put('/:id(\\d+)', restoreUser, bookingValidations.validateUpdate, asyncHa
             (Date.parse(endDate) >= Date.parse(booking.startDate)))
             )
             if (conflict.length > 0) {
-                console.log("Conflict!!!!!!", conflict)
+                
+                const start = moment(conflict[0].startDate).format("MMM Do YY");
+                const end = moment(conflict[0].endDate).format("MMM Do YY")
                 const err = new Error('Booking failed');
                 err.status = 401;
                 err.title = 'Booking failed';
-                err.errors = ["Sorry, we are booked during your selected dates. Please, select another date."];
+                err.errors = [`Sorry, we are booked during your selected dates. Please, select dates before ${start} or after ${end}.`];
                 return next(err);
             } else {
                 await editBooking.update(req.body)

@@ -8,7 +8,7 @@ const imageValidations = require('../../utils/validations/images')
 router.get('/', asyncHandler(async (req, res) => {
     const images = await Image.findAll();
     // const spots = await Spot.findAll();
-    // console.log(images)
+   
     return res.json(images)
 }))
 

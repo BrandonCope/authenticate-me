@@ -22,13 +22,6 @@ const SpotHostForm = () => {
     // const [errors, setErrors] = useState
 
     const user = useSelector((state) => state.session.user?.id)
-    // console.log(user.id)
-    // const spotsObj = useSelector((state) => state.spotState)
-    //   const spots = Object.values(spotsObj)
-  // const imageObj = useSelector((state) => state.imageState.list)
-//   console.log(spotsObj.list)
-
-    // const error
 
   const reset = () => {
       setUrl1("");

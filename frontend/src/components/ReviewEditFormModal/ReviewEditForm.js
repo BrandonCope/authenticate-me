@@ -9,7 +9,6 @@ function ReviewEditForm({review}) {
     const [reviewEdit, setReviewEdit] = useState(`${review.review}`)
     const reviewId = review.id;
     const {setShowModal} = useReviewEditModal();
-    // console.log(reviewId)
 
     const handleSubmit = (e) => {
         e.preventDefault();

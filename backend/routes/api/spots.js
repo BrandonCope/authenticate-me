@@ -8,10 +8,7 @@ const spotValidations = require('../../utils/validations/spots')
 
 router.get('/', restoreUser, asyncHandler(async (req, res) => {
     const spots = await Spot.findAll();
-    // const images = await Image.findAll();
-    // const userId = req.user.id;
-    // console.log(userId)
-    // console.log(spots)
+
     return res.json(spots)
 }))
 
@@ -19,7 +16,7 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     const {id} = req.params
     const spots = await Spot.findByPk(id);
     const images = await Image.findAll();
-    // console.log(spots)
+    
     return res.json(spots)
 }))
 

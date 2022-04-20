@@ -21,11 +21,11 @@ import Profile from "./components/Profile";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
-  // const [spotLoaded, setSpotLoaded] = useState(true);
+
   const spotsObj = useSelector((state) => state.spotState.list)
-  // const imageObj = useSelector((state) => state.imageState.list)
+
   const spots = Object.values(spotsObj)
-  // console.log(spotsObj)
+
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
     dispatch(restoreSpot())
@@ -54,10 +54,6 @@ function App() {
 
           <Route path={'/profiles/:id'}>
             <Profile />
-          </Route>
-
-          <Route path={'/profiles/:id/reservations'}>
-            <ProfileBookings />
           </Route>
 
 

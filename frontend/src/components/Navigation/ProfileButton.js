@@ -50,7 +50,7 @@ function ProfileButton({ user }) {
                 <li className="profileItem">{user.email}</li>
                 <li className="profileItem">
                   <button className="hostButton">
-                    <NavLink to={`/profiles/${user?.id}`}>My Profile</NavLink>
+                    <NavLink to={`/profiles/${user?.id}/reservations`}>My Profile</NavLink>
                   </button>
                 </li>
                 <li className="profileItem">

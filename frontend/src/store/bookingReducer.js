@@ -43,7 +43,13 @@ export const createBooking = (payload) => async dispatch => {
         const newBooking = await response.json()
         dispatch(addBooking(newBooking))
         return newBooking
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data
+        }
     }
+    return response
 }
 
 export const editBooking = (bookingId, payload) => async dispatch => {
