@@ -22,7 +22,7 @@ const Booking = ({spot, user}) => {
     const dispatch = useDispatch()
 
     const rangeDate = ({ startDate, endDate }) => {
-        setStartDate(moment(startDate));
+        setStartDate(moment(!startDate ? tomorrow : startDate));
         setEndDate(moment(endDate))
     }
 
@@ -77,7 +77,7 @@ const Booking = ({spot, user}) => {
                     <h3>End Date:</h3>
                 </div>
             <DateRangePicker
-                startDate={startDate} // momentPropTypes.momentObj or null,
+                startDate={startDate ? startDate : startDate = tomorrow } // momentPropTypes.momentObj or null,
                 startDateId="qwerasdfzxcv" // PropTypes.string.isRequired,
                 endDate={endDate} // momentPropTypes.momentObj or null,
                 endDateId="xzcvasdfqwer" // PropTypes.string.isRequired,
