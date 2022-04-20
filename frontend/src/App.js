@@ -17,6 +17,7 @@ import { getBookings } from "./store/bookingReducer";
 
 import ProfileBookings from "./components/ProfileBookings";
 import Profile from "./components/Profile";
+import Footer from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -63,7 +64,7 @@ function App() {
 
         </Switch>
       )}
-
+      <Footer />
           </div>
     </>
   );
