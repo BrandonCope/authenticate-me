@@ -50,23 +50,16 @@ function ProfileButton({ user }) {
                 <li className="profileItem" >{user.username}</li>
                 <li className="profileItem">{user.email}</li>
                 <li className="profileItem">
-                  <button className="hostButton">
-                    <NavLink to={`/profiles/${user?.id}/reservations`}>My Profile</NavLink>
-                  </button>
-                </li>
+                    <NavLink id="profile-link" className="nav-link" to={`/profiles/${user?.id}/reservations`}>My Profile</NavLink>
+                    </li>
                 <li className="profileItem">
-                  <button className="hostButton">
-                <NavLink to={"/spots/new"}>Host a spot!</NavLink>
-                  </button>
-                </li>
+                    <NavLink className="nav-link"  to={"/spots/new"}>Host a spot!</NavLink>
+                    </li>
                 <li className="profileItem">
-                  <button className="logoutButton" onClick={logout}>Log Out</button>
-                </li>
-        {/* <ProfileButton user={sessionUser} /> */}
-           </div>
-          {/* {sessionLinks} */}
-        </ul>
-
+                    <button className="logoutButton" onClick={logout}>Log Out</button>
+                    </li>
+              </div>
+          </ul>
         </div>
       )}
     </div>
