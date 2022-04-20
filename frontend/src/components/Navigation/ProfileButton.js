@@ -44,7 +44,8 @@ function ProfileButton({ user }) {
         {/* <i class="fa-brands fa-airbnb"></i> */}
       </button>
       {showMenu && (
-        <ul className="profile-dropdown">
+        <div className="profile-dropdown">
+        <ul >
              <div className='loggedInUserNav'>
                 <li className="profileItem" >{user.username}</li>
                 <li className="profileItem">{user.email}</li>
@@ -65,6 +66,8 @@ function ProfileButton({ user }) {
            </div>
           {/* {sessionLinks} */}
         </ul>
+
+        </div>
       )}
     </div>
   );
