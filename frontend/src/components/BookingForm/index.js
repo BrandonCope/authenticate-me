@@ -52,7 +52,6 @@ const Booking = ({spot, user}) => {
             }
             return dispatch(createBooking(buildBooking))
                 .then(() => {
-                    window.prompt("Booking Succesful! :)")
                     history.push(`/profiles/${user?.id}/reservations`)
 
                 }).catch(
