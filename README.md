@@ -28,8 +28,8 @@ Schema of how PostgreSQL database will be set up
 
  - Create/ delete/ edit listings
  - Add/ edit/ delete reviews of listing
- - See lists of your reviews, photos, and breweries you are promoting on User Profile
- - Can search for a brewery by name
+ - Create/ edit/ delete/ bookings
+ - See lists of your reservations and hosted listings on User Profile
 
 **Technologies Used**
 
