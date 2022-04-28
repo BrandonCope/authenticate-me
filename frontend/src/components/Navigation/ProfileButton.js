@@ -57,7 +57,7 @@ function ProfileButton({ user }) {
                     </li>
                 <li className="profileItem">
                     <button className="logoutButton" onClick={logout}>Log Out</button>
-                    </li>
+                </li>
               </div>
           </ul>
         </div>
