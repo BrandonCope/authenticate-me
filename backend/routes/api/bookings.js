@@ -4,13 +4,13 @@ const { restoreUser, requireAuth } = require('../../utils/auth')
 const moment = require('moment');
 moment().format();
 
-const { Booking, Spot } = require('../../db/models')
+const { Booking, Spot, User } = require('../../db/models')
 const bookingValidations = require('../../utils/validations/bookings');
 
 
 router.get('/', restoreUser, asyncHandler(async(req,res) => {
     const bookings = await Booking.findAll({
-        include: Spot,
+        include: [Spot, User],
     });
     return res.json(bookings)
 }))
@@ -64,7 +64,7 @@ router.put('/:id(\\d+)', restoreUser, bookingValidations.validateUpdate, asyncHa
             (Date.parse(endDate) >= Date.parse(booking.startDate)))
             )
             if (conflict.length > 0) {
-                
+
                 const start = moment(conflict[0].startDate).format("MMM Do YY");
                 const end = moment(conflict[0].endDate).format("MMM Do YY")
                 const err = new Error('Booking failed');

@@ -2,14 +2,12 @@ import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from 'react-router-dom'
 import moment from "moment"
-import "./ProfileBooking.css"
-import EditDeleteFormModal, { useEditDeleteModal } from "../EditDeleteModal"
 import { getBookings } from "../../store/bookingReducer"
-const ProfileBookings = ({user}) => {
+const ProfileEstateBookings = ({user}) => {
     const {id} = useParams()
     const bookings = useSelector((state) => state.bookingState)
     const bookingsArr = Object.values(bookings)
-    const filterBookingArr = bookingsArr.filter(booking => booking?.userId === +id)
+    const filterBookingArr = bookingsArr.filter(booking => booking?.Spot.userId === +id)
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getBookings())
@@ -17,7 +15,7 @@ const ProfileBookings = ({user}) => {
     return (
         <div>
             <div>
-            <h1>My Reservations</h1>
+            <h1>My Estates Bookings</h1>
             </div>
             <div className="res-container">
                 {filterBookingArr.length ? <>
@@ -39,12 +37,12 @@ const ProfileBookings = ({user}) => {
                             <div>End Date:</div>
                             <div>{moment(booking?.endDate).format("MMM Do YY")}</div>
                             </div>
-                            <div><EditDeleteFormModal booking={booking} /></div>
+                            {/* <div><EditDeleteFormModal booking={booking} /></div> */}
 
                         </div>
                     ))}
                 </> : <><div>
-                        <h3>You do not have any reservations at the moment.</h3>
+                        <h3>Your estates have not been booked at the moment.</h3>
                     </div></>}
             </div>
         </div>
@@ -52,4 +50,4 @@ const ProfileBookings = ({user}) => {
 }
 
 
-export default ProfileBookings
+export default ProfileEstateBookings
