@@ -8,9 +8,9 @@ import { getSpots } from '../../store/spotReducer'
 const SpotList = ({spots}) => {
     const dispatch = useDispatch()
 
-    // useEffect(() => {
-    //     // dispatch(getSpots());
-    // }, [dispatch]);
+    useEffect(() => {
+        dispatch(getSpots());
+    }, [dispatch]);
 
     return (
         <div className='spotListContainer'>

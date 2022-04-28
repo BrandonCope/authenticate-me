@@ -63,6 +63,11 @@ const EditBooking = ({booking}) => {
         }
     }
 
+    const handleCancel = (e) => {
+        e.preventDefault()
+        setShowModal(false)
+      }
+      
     return (
         <form onSubmit={handleSubmit}>
             <div className="booking-date-picker">
@@ -70,6 +75,8 @@ const EditBooking = ({booking}) => {
           <li className="booking-error" key={idx}>{error}</li>
         ))}
                 <div className="booking-body-container">
+                <button onClick={handleCancel} className="cancel-form-button" ><i className="fa-solid fa-x"></i></button>
+
                 <div className="booking-label">
                     <h3>Start Date:</h3>
                     <h3>End Date:</h3>
@@ -88,6 +95,7 @@ const EditBooking = ({booking}) => {
                 <button className="createReviewButton">Submit Changes</button>
             </div>
                 </div>
+
         </form>
     )
 }

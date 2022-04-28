@@ -19,6 +19,11 @@ function ReviewEditForm({review}) {
         dispatch(editReview(reviewId, payload))
         setShowModal(false)
     }
+
+    const handleCancel = (e) => {
+        e.preventDefault()
+        setShowModal(false)
+      }
     return (
         // <h2>Hello From Review Edit Form</h2>
         <div className="reviewEditForm">
@@ -37,6 +42,7 @@ function ReviewEditForm({review}) {
         ></textarea>
         <button className="reviewEditButton"  >Edit Review</button>
         </form>
+        <button onClick={handleCancel} className="cancel-form-button" ><i className="fa-solid fa-x"></i></button>
     </div>
     )
 }
