@@ -14,10 +14,16 @@ const DeleteForm = ({booking}) => {
         e.preventDefault()
         setShowDeleteModal(false)
     }
+
+    const handleCancel = (e) => {
+        e.preventDefault()
+        setShowDeleteModal(false)
+      }
     return (
         <>
             <div className="edit-delete-modal-buttons">
-                <div><h3>Are you sure, you want to cancel?</h3></div>
+            <button onClick={handleCancel} className="cancel-form-button" ><i className="fa-solid fa-x"></i></button>
+                <div><h3>Are you sure, you want to cancel your dates?</h3></div>
                 <div>
                     <button className="createReviewButton" onClick={handleDelete}>Yes, cancel dates!</button>
                     <button className="createReviewButton" onClick={handleReturn}>No, save dates!</button>

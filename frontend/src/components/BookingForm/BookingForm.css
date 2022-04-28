@@ -25,11 +25,12 @@
     font-weight: bolder;
     display: flex;
     flex-direction: column;
-    
+
 }
 
 .booking-body-container {
     display: flex;
+    padding: 35px;
 }
 
 .DateInput_input {
@@ -39,10 +40,6 @@
     cursor: pointer;
 }
 
-.DateInput_input:hover {
-    /* background-color: white;
-    color: black; */
-}
 
 
 /* // NOTE: the order of these styles DO matter */

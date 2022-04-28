@@ -42,12 +42,13 @@ function SpotEditForm() {
         }
       dispatch(editSpot(spotId, payload))
       setShowModal(false)
-    //   history.push(`/spots/${spotId}`)
     }
 
-    // useEffect(() => {
-    //     dispatch(editSpot())
-    // },[dispatch])
+    const handleCancel = (e) => {
+      e.preventDefault()
+      setShowModal(false)
+    }
+
 
 
     return (
@@ -96,10 +97,11 @@ function SpotEditForm() {
             required
             />
         </label>
+        <div className='edit-city-state'>
         <label>
 
             <input
-              className="editSpotInput"
+              className="spotInput"
             placeholder="City"
             type="text"
             // placeholder={spots.city}
@@ -111,7 +113,7 @@ function SpotEditForm() {
         <label>
 
             <input
-              className="editSpotInput"
+              className="spotInput"
             placeholder="State"
             type="text"
             value={state}
@@ -119,6 +121,7 @@ function SpotEditForm() {
             required
             />
         </label>
+        </div>
         <label>
 
             <input
@@ -130,10 +133,11 @@ function SpotEditForm() {
             required
             />
         </label>
+        <div className='edit-city-state'>
         <label>
 
             <input
-              className="editSpotInput"
+              className="spotInput"
             placeholder="Latitude"
             type="number"
             value={lat}
@@ -143,13 +147,14 @@ function SpotEditForm() {
         <label>
 
             <input
-              className="editSpotInput"
+              className="spotInput"
             placeholder="Longitude"
             type="number"
             value={lng}
             onChange={(e) => setLng(Number(e.target.value))}
             />
         </label>
+        </div>
         <label>
 
             <input
@@ -173,6 +178,7 @@ function SpotEditForm() {
         </label>
         <button className='editSubmit' type='submit'>Submit Changes!</button>
     </form>
+        <button onClick={handleCancel} className="cancel-form-button" ><i className="fa-solid fa-x"></i></button>
         </div>
     )
 }

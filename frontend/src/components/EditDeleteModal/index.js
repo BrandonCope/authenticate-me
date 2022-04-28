@@ -20,7 +20,7 @@ function EditDeleteFormModal({booking}) {
            <button className='createReviewButton' onClick={() => setShowEditDeleteModal(true)}><i className="fa-solid fa-ellipsis"></i></button>
         {showModal && (
             <Modal onClose={() => setShowEditDeleteModal(false)}>
-                <EditDeleteModal booking={booking} />
+                <EditDeleteModal booking={booking} setShowModal={setShowEditDeleteModal} />
             </Modal>
       )}
         </EditDeleteModalContext.Provider>

@@ -29,9 +29,12 @@ function ReviewForm() {
         }
       dispatch(createReview(buildReview))
         setShowModal(false)
-
-
     }
+
+    const handleCancel = (e) => {
+        e.preventDefault()
+        setShowModal(false)
+      }
 
     return (
         <div className="reviewFormContainer">
@@ -50,6 +53,7 @@ function ReviewForm() {
             ></textarea>
             <button className="createReviewButton"  >Create Review</button>
             </form>
+            <button onClick={handleCancel} className="cancel-form-button" ><i className="fa-solid fa-x"></i></button>
         </div>
     )
 }

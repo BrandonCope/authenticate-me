@@ -1,5 +1,6 @@
 .pageDiv {
     color: white;
+    z-index: -10;
 }
 
 h1 {
@@ -10,5 +11,3 @@ h1 {
 button {
     cursor: pointer;
 }
-
-

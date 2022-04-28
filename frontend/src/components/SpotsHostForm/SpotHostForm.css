@@ -5,22 +5,28 @@
     border: 5px solid;
     border-radius: 10px;
     width: 350px;
-    height: 550px;
+    height: 450px;
     padding: 50px;
     /* padding-top: 10px; */
     color: black;
-
+    margin-bottom: 35px;
     background-color: goldenrod;
 }
 .hostContainer {
     display: flex;
     justify-content: center;
     color: white;
+    z-index: -1;
 }
 
 .hostSpotInput {
     width: 330px;
     margin-bottom: 10px;
+}
+
+.city-state{
+    display: flex;
+    margin-right: 3px;
 }
 
 /* .inputFields {

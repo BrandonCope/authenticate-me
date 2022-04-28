@@ -8,6 +8,9 @@ import { useEffect } from 'react';
 import ReviewFormModal from '../ReviewFormModal'
 import { deleteReview, getReviews } from '../../store/reviewReducer';
 import Booking from '../BookingForm';
+import DeleteAllFormModal from '../DeleteForm';
+import DeleteSpotFormModal from '../SpotDeleteModal';
+import { deleteBooking } from '../../store/bookingReducer';
 
 
 
@@ -24,10 +27,15 @@ const SpotDetail = ({spots}) => {
     const spotUser = useSelector((state) => state.spotState.list[spotId])
     const reviews = useSelector((state) => state.reviewState)
 
+    const bookings = useSelector((state) => state.bookingState)
+    const bookingsArr = Object.values(bookings)
+    const filterBookingArr = bookingsArr.filter(booking => booking?.spotId === +spotId)
+
+
     for (key in reviews) {
         reviewArr.push(reviews[key])
     }
-
+    console.log(spot)
     const pageReviews = reviewArr.filter(review => {
 
         if (review?.spotId === spot?.id) {
@@ -37,20 +45,19 @@ const SpotDetail = ({spots}) => {
             return false;
         }
     })
+    console.log(filterBookingArr)
 
-    // useEffect(() => {
-    //     // dispatch(getSpots())
-    //     // dispatch(getReviews())
-    // },[dispatch])
+    // const handleClick = async () => {
+    //     pageReviews.forEach(review => {
+    //     dispatch(deleteReview(review.id))
+    //     })
+    //     filterBookingArr.forEach(booking => {
+    //         dispatch(deleteBooking(booking.id))
+    //     })
 
-    const handleClick = async () => {
-        pageReviews.forEach(review => {
-        dispatch(deleteReview(review.id))
-        })
-
-        await dispatch(deleteSpot(spotId))
-        history.push('/')
-    }
+    //     await dispatch(deleteSpot(spotId))
+    //     history.push('/')
+    // }
 
   let sessionLinks;
   if (user) {
@@ -72,9 +79,8 @@ const SpotDetail = ({spots}) => {
         spotEdits = (
             <div>
                 <SpotEditFormModal />
-
-                <button className='deleteSpotButton' onClick={handleClick} >
-                Delete</button>
+                <DeleteSpotFormModal spot={spot} pageReviews={pageReviews} filterBookingArr={filterBookingArr} />
+                {/* <button className='deleteSpotButton' onClick={handleClick} >Delete</button> */}
             </div>
         )
     } else {

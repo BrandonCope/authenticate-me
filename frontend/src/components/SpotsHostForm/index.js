@@ -108,9 +108,10 @@ const SpotHostForm = () => {
                     required
                     />
                 </label>
+                <div className='city-state'>
                 <label>
                     <input
-                    className='hostSpotInput'
+                    className='spotInput'
                     placeholder='City'
                     type="text"
                     value={city}
@@ -120,7 +121,7 @@ const SpotHostForm = () => {
                 </label>
                 <label>
                     <input
-                    className='hostSpotInput'
+                    className='spotInput'
                     placeholder='State'
                     type="text"
                     value={state}
@@ -128,6 +129,8 @@ const SpotHostForm = () => {
                     required
                     />
                 </label>
+
+                </div>
                 <label>
                     <input
                     className='hostSpotInput'
@@ -138,9 +141,10 @@ const SpotHostForm = () => {
                     required
                     />
                 </label>
+                <div className='city-state'>
                 <label>
                     <input
-                    className='hostSpotInput'
+                    className='spotInput'
                     placeholder='Latitude'
                     type="number"
                     value={lat}
@@ -150,7 +154,7 @@ const SpotHostForm = () => {
                 </label>
                 <label>
                     <input
-                    className='hostSpotInput'
+                    className='spotInput'
                     placeholder='Longitude'
                     type="number"
                     value={lng}
@@ -158,6 +162,8 @@ const SpotHostForm = () => {
                     required
                     />
                 </label>
+
+                </div>
                 <label>
                     <input
                     className='hostSpotInput'
